@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true, // Formata os arquivos automaticamente ao salvá-los
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit" // Organiza os imports automaticamente ao salvá-los
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode" // Define o Prettier como o formatador padrão
+}
