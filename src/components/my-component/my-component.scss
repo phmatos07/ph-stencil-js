@@ -1,0 +1,17 @@
+$color: red !default;
+
+:host {
+  display: block;
+}
+
+.teste {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  color: $color;
+  text-align: center;
+  border: 1px solid #a6a6a6;
+  background-color: #cfcfcf;
+}
