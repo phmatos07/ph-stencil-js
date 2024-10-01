@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface HorizontalTimeline {
-        "points": string[];
+        "points": { name: string; active?: boolean }[];
         "position": string | number;
     }
     interface MyPlayground {
@@ -33,7 +33,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface HorizontalTimeline {
-        "points": string[];
+        "points": { name: string; active?: boolean }[];
         "position"?: string | number;
     }
     interface MyPlayground {
