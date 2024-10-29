@@ -1,5 +1,5 @@
 {
-  "name": "ph-stencil-js",
+  "name": "@ph/stencil-js",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
@@ -33,6 +33,8 @@
   ],
   "scripts": {
     "build": "stencil build",
+    "build:ci": "stencil build && npm run copy:package:dist",
+    "copy:package:dist": "sudo cp ./package.json ./dist/package.json",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test:watch": "stencil test --spec --e2e --watchAll",
