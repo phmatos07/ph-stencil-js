@@ -1,0 +1,88 @@
+/// Mixin responsável por aplicar uma animação do tipo ripple
+///
+/// @group tools
+/// @param {string} $color - Código referente a cor do efeito de ripple
+/// @param {string} $duration - Tempo de duração referente a animação
+/// @param {string} $timing - Especifica a curva de velocidade da animação
+/// @param {string} $delay - Especifica um atraso para o início de uma animação
+///
+/// @example scss - Uso
+/// .button {
+///   @include animation-ripple(color(ui-background-primary), .3s);
+/// }
+///
+/// @example scss - Compilado
+/// .button {
+///  animation: button-primary 0.3s ease 0s;
+/// }
+///
+/// keyframes button-primary {
+///  0% {
+///   background-image: radial-gradient(circle, transparent 0%, #F2F2F2 1%);
+///  }
+///  5% {
+///   background-image: radial-gradient(circle, transparent 5%, #F2F2F2 1%);
+///  }
+///   10% {
+///   background-image: radial-gradient(circle, transparent 10%, #F2F2F2 1%);
+///  }
+///   20% {
+///   background-image: radial-gradient(circle, transparent 20%, #F2F2F2 1%);
+///  }
+///   50% {
+///   background-image: radial-gradient(circle, transparent 50%, #F2F2F2 1%);
+///  }
+///   70% {
+///   background-image: radial-gradient(circle, transparent 70%, #F2F2F2 1%);
+///  }
+///   90% {
+///   background-image: radial-gradient(circle, transparent 90%, #F2F2F2 1%);
+///  }
+///   100% {
+///   background-image: radial-gradient(circle, transparent 100%, #F2F2F2 1%);
+///  }
+/// }
+///
+@mixin animation-ripple($color: null, $duration: 1s, $timing: ease, $delay: 0s) {
+  @if $color {
+
+    $keyframe-ripple: _create-key-name(ripple);
+    animation: $keyframe-ripple $duration $timing $delay;
+
+    @keyframes #{$keyframe-ripple} {
+      0% {
+        background-image: radial-gradient(circle, transparent 0%, $color 1%);
+      }
+
+      5% {
+        background-image: radial-gradient(circle, transparent 5%, $color 1%);
+      }
+
+      10% {
+        background-image: radial-gradient(circle, transparent 10%, $color 1%);
+      }
+
+      20% {
+        background-image: radial-gradient(circle, transparent 20%, $color 1%);
+      }
+
+      50% {
+        background-image: radial-gradient(circle, transparent 50%, $color 1%);
+      }
+
+      70% {
+        background-image: radial-gradient(circle, transparent 70%, $color 1%);
+      }
+
+      90% {
+        background-image: radial-gradient(circle, transparent 90%, $color 1%);
+      }
+
+      100% {
+        background-image: radial-gradient(circle, transparent 100%, $color 1%);
+      }
+    }
+  } @else {
+    @warn _warning-message('not', '$color');
+  }
+}

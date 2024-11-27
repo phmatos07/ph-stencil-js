@@ -1,0 +1,23 @@
+/// Função responsável por fornecer uma mensagem padronizada
+///
+/// @group private-tools
+/// @access private
+/// @param {string} $type - Tipo da mensagem (Ex.: map ou key).
+/// @param {string} $name - Nome do mapa ou da chave.
+/// @return {string} Texto com a mensagem personalizada.
+///
+@function _warning-message($type, $name) {
+  @if not $type {
+    @return 'Informe o tipo da mensagem que deseja mostrar (Ex.: map ou key).';
+  } @else if not $name {
+    @return 'Informe o nome do mapa ou da chave!';
+  } @else if $type == 'map' {
+    @return 'Erro de configuração: mapa `#{$name}` não encontrado!';
+  } @else if $type == 'key' {
+    @return 'Erro de parâmetro: a chave `#{$name}` não foi encontrada no mapa!';
+  } @else if $type == 'not' {
+    @return 'Erro de parâmetro: informe o valor do parâmetro `#{$name}`!';
+  } @else if $type == 'number' {
+    @return 'Erro de valor: informe apenas valores numéricos no parâmetro `#{$name}`!';
+  }
+}

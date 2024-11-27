@@ -1,0 +1,40 @@
+/// Converte qualquer valor para `rem`.
+///
+/// @group tools
+/// @param {string} $value - Valor númerico para a conversão (**Ex.:** 20px, 20%, 20vm e etc).
+/// @return {number} - Valor convertido expressado em `rem`.
+///
+/// @example scss - Uso
+///   .elemento {
+///     font-size: rem(20px);
+///   }
+///
+/// @example scss - Compilado
+///   .elemento {
+///     font-size: 1.25rem
+///   }
+///
+@use 'sass:math';
+@function rem($value) {
+  $result: null;
+
+  @if not type-of($value) == 'number' {
+    @warn '#{$value} precisa ser um número.';
+  } @else if unitless($value) {
+    @warn 'O valor #{$value} precisa ter declarado o tipo de unidade (px, em, %, vw, etc).';
+  } @else {
+    $calc-result: null;
+
+    @if unit($value) == 'px' {
+      $calc-result: math.div(_clean-unit($value), _clean-unit($font-size-base));
+    } @else if unit($value) == 'rem' {
+      $calc-result: _clean-unit($value);
+    } @else {
+      $calc-result: math.div(_clean-unit($value), 100);
+    }
+
+    $result: $calc-result * 1rem;
+  }
+
+  @return $result;
+}

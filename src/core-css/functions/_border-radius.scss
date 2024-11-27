@@ -1,0 +1,26 @@
+/// Função responsável por obter os tamanhos mapeados no mapa $border-radius
+///
+/// @group tools
+/// @param {string} $key - Nome da chave referente ao tamanho desejado
+/// @return {number} - Valor numérico em pixel (Ex.: 4px ou 8px)
+/// @require {variable} $border-radius
+///
+/// @example scss - Uso da função
+/// .class {
+///   font-size: border-radius(small);
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   border-radius: 8px;
+/// }
+///
+@function border-radius($key) {
+  @if not variable-exists(border-radius) {
+    @warn _warning-message('map', '$border-radius');
+  } @else if not map-has-key($border-radius, $key) {
+    @warn _warning-message('key', $key);
+  } @else {
+    @return map-get($border-radius, $key);
+  }
+}

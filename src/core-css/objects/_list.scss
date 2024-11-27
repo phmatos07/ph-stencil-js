@@ -1,0 +1,10 @@
+.#{$prefix}list {
+  &__item {
+    padding: space(medium) 0;
+    border-top: $border-default;
+
+    &:last-child {
+      border-bottom: $border-default;
+    }
+  }
+}

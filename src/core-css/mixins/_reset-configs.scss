@@ -1,0 +1,51 @@
+/// Mixin responsável por realizar um reset básico de spacing, font, background e border
+///
+/// @group tools
+/// @param {boolean} $is-spacing - Reseta as configurações de espaçamento
+/// @param {boolean} $is-font - Reseta as configurações referente a fonte de texto
+/// @param {boolean} $is-background - Reseta as configurações referente ao background
+/// @param {boolean} $is-border - Reseta as configurações de borda
+///
+/// @example scss - Uso
+/// .class {
+///   @include reset-configs(true, true, true, true);
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   margin: 0;
+///   padding: 0;
+///   font-size: 100%;
+///   font-style: normal;
+///   font-weight: normal;
+///   vertical-align: baseline;
+///   background: transparent;
+///   border: 0;
+///   border-radius: 0;
+/// }
+///
+@mixin reset-configs($is-spacing: false, $is-font: false, $is-background: false, $is-border: false) {
+
+  @if $is-spacing {
+    margin: 0;
+    padding: 0;
+  }
+
+  @if $is-font {
+    font: {
+      size: 100%;
+      style: normal;
+      weight: normal;
+    }
+    vertical-align: baseline;
+  }
+
+  @if $is-background {
+    background: transparent;
+  }
+
+  @if $is-border {
+    border: 0;
+    border-radius: 0;
+  }
+}

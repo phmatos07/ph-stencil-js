@@ -1,0 +1,54 @@
+@use 'sass:math';
+$margin-spacing: 1rem !default;
+$initial-cycle: 1 !default;
+
+.#{$prefix}grid {
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+
+  &--margin-top {
+    margin-top: $margin-spacing;
+  }
+
+  &--margin-left {
+    margin-left: $margin-spacing;
+  }
+
+  &--margin-right {
+    margin-right: $margin-spacing;
+  }
+
+  &--margin-bottom {
+    margin-bottom: $margin-spacing;
+  }
+
+  @media (min-width: 0) {
+    &__col {
+      flex: 0 0 100%;
+    }
+  }
+
+  @each $key, $value in $breakpoints {
+    @for $i from $initial-cycle through $grid-columns {
+      &__col--#{$key}-#{$i} {
+
+        @include breakpoint($key) {
+          flex: 0 0 #{math.div($i, $grid-columns) * 100%};
+        }
+      }
+
+      &__col--#{$key}-hide-min {
+        @include breakpoint($key) {
+          display: none;
+        }
+      }
+
+      &__col--#{$key}-hide-max {
+        @include breakpoint($key, max) {
+          display: none;
+        }
+      }
+    }
+  }
+}

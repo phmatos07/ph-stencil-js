@@ -1,0 +1,35 @@
+.#{$prefix}modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: z-index(high);
+  width: 100%;
+  min-height: 100vh;
+  padding: space(large);
+  background-color: color(ui-background-secondary);
+
+  &__button {
+    @include reset-configs(true, true, true, true);
+    float: right;
+    width: rem(15px);
+    height: rem(15px);
+    color: color(brand-primary);
+    cursor: pointer;
+
+    &:active {
+      color: color(ui-text-secondary);
+    }
+  }
+
+  &__content {
+    margin-top: space(xlarge);
+  }
+
+  &--visible {
+    @include fade(in);
+  }
+
+  &--hidden {
+    @include fade;
+  }
+}

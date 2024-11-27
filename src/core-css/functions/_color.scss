@@ -1,0 +1,29 @@
+/// Retorna a cor desejada de acordo com o configurado nos mapas `$brand-colors` e `$ui-colors`
+///
+/// @group tools
+/// @param {string} $color - Nome da chave da cor desejada
+/// @return {string} #0033C6
+///
+/// @example scss - Uso da função
+/// .class {
+///  background-color: color(primary);
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///  background-color: #0033C6;
+/// }
+///
+@function color($color) {
+  @if variable-exists(brand-colors) and variable-exists(ui-colors) {
+    $all-colors: map-merge($brand-colors, $ui-colors);
+
+    @if map-has-key($all-colors, $color) {
+      @return map-get($all-colors, $color);
+    } @else {
+      @warn 'A chave "#{$color}" não existe nos mapas "$brand-colors" ou "$ui-colors"!';
+    }
+  } @else {
+    @warn 'Por favor, verifique se o mapa "$brand-colors" ou "$ui-colors" foi declarado corretamente!';
+  }
+}

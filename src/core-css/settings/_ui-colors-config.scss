@@ -1,0 +1,31 @@
+/// Mapa de cores padrão da interface **UI**
+///
+/// @group settings
+/// @prop {string} $ui-colors.ui-text-primary - Cor primária para todos os textos
+/// @prop {string} $ui-colors.ui-text-secondary - Cor secundária para todos os textos
+/// @prop {string} $ui-colors.ui-light - Cor de sobre tom para apoio em toda a UI
+/// @prop {string} $ui-colors.ui-info - Cor para ser usada para caixas de informação ao usuário
+/// @prop {string} $ui-colors.ui-success - Cor para ser usada em casos de sucesso
+/// @prop {string} $ui-colors.ui-attention - Cor para ser usada como alerta de erro
+///
+$ui-colors: (
+  ui-text-primary: #212121,
+  ui-text-secondary: #B5B5B5,
+  ui-text-light: #FFFFFF,
+  ui-border-primary: #E8E8E8,
+  ui-border-secondary: #CCCCCC,
+  ui-box-shadow: #DFDFDF,
+  ui-info: #FFCF4D,
+  ui-success: #0E8154,
+  ui-attention: #D30545,
+  ui-disabled: #B5B5B5,
+  ui-background-primary: #F2F2F2,
+  ui-background-secondary: #FFFFFF,
+  ui-background-complementary: #FBFBFB,
+  ui-background-skeleton-loader: #F5F5F5,
+  ui-icon-light: #F5F5F5,
+  ui-icon-protecao-financeira: #FFCC4D,
+  ui-icon-protecao-casa: #5279D4,
+  ui-icon-vida-protegida: #FF5C6A,
+  ui-spinner: #0033C6
+) !default;

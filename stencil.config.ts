@@ -4,7 +4,6 @@ import { sass } from '@stencil/sass';
 export const config: Config = {
   namespace: 'ph-stencil-js',
   taskQueue: 'async',
-  globalStyle: 'src/styles/global.css',
   plugins: [sass()],
   extras: {
     appendChildSlotFix: true,
@@ -13,7 +12,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist',
-      copy: [{ src: 'files' }]
+      copy: [{ src: 'core-css' }]
     },
     {
       type: 'dist-custom-elements'

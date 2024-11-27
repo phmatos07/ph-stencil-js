@@ -1,0 +1,37 @@
+///  Mixin responsável por aplicar media query
+///
+/// @group tools
+/// @param {string} $key - Nome da chave referente ao tamanho desejado
+/// @require {variable} $breakpoints
+///
+/// @example scss - Uso do Mixin
+/// .class {
+///   @include breakpoint(sm) {
+///     width: 100%;
+///     padding: .5rem;
+///     background-color: white;
+///   }
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   @media (max-width: 768px) {
+///     width: 100%;
+///     padding: .5rem;
+///     background-color: white;
+///   }
+/// }
+///
+@mixin breakpoint($key, $type-width: min) {
+
+  @if not variable-exists(breakpoints) {
+    @warn _warning-message('map', '$breakpoints');
+  } @else if not map-has-key($breakpoints, $key) {
+    @warn _warning-message('key', $key);
+  } @else {
+
+    @media (#{$type-width}-width: map-get($breakpoints, $key)) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+// TODO: Documentar a utilização do Mixin
+@mixin animation-rotate($start, $end, $rotate: false) {
+  @if $rotate {
+    animation: animation-rotate-in .3s cubic-bezier(.250, .460, .450, .940) both;
+
+    @keyframes animation-rotate-in {
+      0% {
+        transform: rotate($start);
+      }
+
+      100% {
+        transform: rotate($end);
+      }
+    }
+  } @else {
+    animation: animation-rotate-out .3s cubic-bezier(.250, .460, .450, .940) both;
+
+    @keyframes animation-rotate-out {
+      0% {
+        transform: rotate($start);
+      }
+
+      100% {
+        transform: rotate($end);
+      }
+    }
+  }
+}

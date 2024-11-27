@@ -1,0 +1,15 @@
+@charset 'UTF-8';
+
+// Configurações - Camada usada com pré-processadores e contém definições de fonte, cores e etc.
+@import './settings/index';
+
+// Ferramentas (Functions e mixins) - Camada de mixins e funções usados ​​globalmente.
+// Nota: É importante não gerar nenhum CSS nas 2 primeiras camadas.
+@import './functions/index';
+@import './mixins/index';
+
+// Elementos - Estilo para elementos HTML básicos (como H1, A e etc.). Eles vêm com o estilo padrão do navegador para que possamos redefini-los aqui.
+@import './elements/index';
+
+// Objetos - Camada para seletores baseados em classe que definem padrões de design não decorados, por exemplo, objeto de mídia conhecido de OOCSS.
+@import './objects/index';

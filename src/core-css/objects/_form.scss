@@ -1,0 +1,42 @@
+.#{$prefix}form-group {
+  margin-bottom: space(medium);
+
+  &--required {
+    label {
+      &::before {
+        content: '*';
+      }
+    }
+  }
+}
+
+.#{$prefix}form-checkbox,
+.#{$prefix}form-radio {
+  display: flex;
+  align-items: center;
+  font-size: font-size(medium);
+
+  &:first-child {
+    margin-top: space(large);
+  }
+
+  label {
+    margin: 0;
+  }
+
+  input {
+    width: $checkbox-radio-size;
+    margin-right: space(small);
+  }
+
+  &--right {
+    justify-content: space-between;
+
+    input {
+      &::before {
+        position: relative;
+        right: $side-spacing;
+      }
+    }
+  }
+}

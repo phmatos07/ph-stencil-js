@@ -1,0 +1,49 @@
+.#{$prefix}card {
+  width: 100%;
+  padding: space(medium) $side-spacing;
+  background-color: color(ui-background-secondary);
+  border: {
+    top: $border-default;
+    bottom: $border-default;
+  }
+
+  &--disable {
+    &-borders {
+      border: 0;
+    }
+
+    &-border-top {
+      border-top: 0;
+    }
+
+    &-border-bottom {
+      border-bottom: 0;
+    }
+  }
+
+  &--box-shadow {
+    box-shadow: 0 0 10px color(ui-box-shadow);
+  }
+
+  &__header {
+    margin: -(space(large)) {
+      top: -(space(medium));
+      bottom: space(medium);
+    }
+    padding: space(medium) space(large);
+    background-color: color(ui-background-complementary);
+    border-bottom: $border-default;
+  }
+
+  &__footer {
+    margin: {
+      top: space(medium);
+      right: -(space(large));
+      bottom: -(space(medium));
+      left: -(space(large));
+    }
+    padding: space(medium) space(large);
+    background-color: color(ui-background-complementary);
+    border-top: $border-default;
+  }
+}

@@ -1,0 +1,15 @@
+/// Função responsável por remover a unidade de medida ``(Ex.: px, rem, em e etc)`` do número.
+///
+/// @group private-tools
+/// @access private
+/// @param {number} $value - 10px
+/// @return {number} - 10
+///
+@use 'sass:math';
+@function _clean-unit($value) {
+  @if type-of($value) == 'number' {
+    @return math.div($value, ($value * 0 + 1));
+  } @else {
+    @warn '#{$value} não é um número';
+  }
+}

@@ -1,0 +1,94 @@
+/// Mixin responsável por aplicar uma animação do tipo fade-out (esmaecer) ou fade-in (aparecer)
+///
+/// @group tools
+/// @param {string} $type [out] - Tipo da animação, in ou out ('in' para aparecer e 'out' para esmaecer)
+/// @param {string} $duration [300ms] - Tempo que durará a animação (em segundos ou milessegundos)
+/// @param {string} $timing-function [linear]- Efeito em função do tempo
+/// @param {string} $fill-mode [forwards] - Modo de preenchimento
+///
+/// @example scss - Uso para esmaecer (sem parâmetros)
+/// .class {
+///   @include fade;
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   animation: fade-uke546uj 300ms linear forwards;
+///
+///   @keyframes fade-uke546uj {
+///     0% {
+///       opacity: 1;
+///     }
+///
+///     100% {
+///       opacity: 0;
+///     }
+///   }
+/// }
+///
+/// @example scss - Uso para aparecer
+/// .class {
+///   @include fade(in);
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   animation: fade-u5hg46ub 300ms linear forwards;
+///
+///   @keyframes fade-u5hg46ub {
+///     0% {
+///       opacity: 0;
+///     }
+///
+///     100% {
+///       opacity: 1;
+///     }
+///   }
+/// }
+///
+/// @example scss - Uso para esmaecer com todos parâmetros
+/// .class {
+///   @include fade(out, 2s. normal, both);
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   animation: fade-uu4md9fk 2s normal both;
+///
+///   @keyframes fade-uu4md9fk {
+///     0% {
+///       opacity: 1;
+///     }
+///
+///     100% {
+///       opacity: 0;
+///     }
+///   }
+/// }
+
+@mixin fade($type: out, $duration: 300ms, $timing-function: linear, $fill-mode: forwards) {
+  @if $type != out and $type != in {
+    @error '#{$type} is a inválid $type, please insert \"out\" or \"in\"';
+  }
+
+  $name-keyframe: fade-#{unique-id()};
+  $initialize-keyframe: 1;
+  $finalize-keyframe: 0;
+
+  @if $type == in {
+    $initialize-keyframe: 0;
+    $finalize-keyframe: 1;
+  }
+
+  animation: $name-keyframe $duration $timing-function $fill-mode;
+
+  @keyframes #{$name-keyframe} {
+    0% {
+      opacity: $initialize-keyframe;
+    }
+
+    100% {
+      opacity: $finalize-keyframe;
+    }
+  }
+}

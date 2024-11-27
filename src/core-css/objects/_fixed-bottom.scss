@@ -1,0 +1,10 @@
+$content-box-shadow-color: rgba(0, 0, 0, .1);
+
+.#{$prefix}fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: space(large);
+  background-color: color(ui-background-secondary);
+  box-shadow: 0 0 10px $content-box-shadow-color;
+}

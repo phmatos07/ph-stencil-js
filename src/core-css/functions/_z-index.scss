@@ -1,0 +1,33 @@
+/// Função responsável por retornar o valor correspondente à camada no mapa `$z-index`
+///
+/// @group tools
+/// @param {string} $layer - Nome da camada
+/// @return {number} - Valor da camada (**Ex.:** 950)
+///
+/// @example scss - Uso
+///   .classe-1 {
+///     z-index: z-index(low);
+///   }
+///
+///   .classe-2 {
+///     z-index: z-index(high);
+///   }
+///
+/// @example scss - Compilado
+///   .classe-1 {
+///     z-index: -1;
+///   }
+///
+///   .classe-2 {
+///     z-index: 930;
+///   }
+///
+@function z-index($layer) {
+  @if not variable-exists(z-layer) {
+    @warn _warning-message('map', '$z-layer');
+  } @else if not(map-has-key($z-layer, $layer)) {
+    @warn _warning-message('key', $layer);
+  } @else {
+    @return map-get($z-layer, $layer);
+  }
+}

@@ -1,0 +1,8 @@
+body {
+  font-family: Nunito, #{$font-web-safe};
+  font-size: font-size(medium);
+  font-weight: font-weight(regular);
+  color: color(ui-text-primary);
+  line-height: 1.2;
+  background-color: color(ui-background-primary);
+}

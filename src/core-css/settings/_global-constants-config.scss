@@ -1,0 +1,31 @@
+/// Constante utilizada para definir o prefixo das classes (Nota: Não é obrigatório)
+/// @group settings
+$prefix: null;
+
+/// Constante utilizada para definir o espaçamento lateral dos componentes (Valor em pixel: 24px)
+/// @group settings
+$side-spacing: map-get($spaces, 'large') !default;
+
+/// Constante com as configurações de fontes do tipo `web-safe`
+/// @group settings
+$font-web-safe: Arial, sans-serif !default;
+
+/// Constante utilizada para facilitar a conversão de unidades de medida
+/// @group settings
+$font-size-base: 16px !default;
+
+/// Espessura padrão referente a borda
+/// @group settings
+$border-width-base: 1px !default;
+
+/// Cor padrão referente a borda
+/// @group settings
+$border-color-base: map-get($ui-colors, 'ui-border-primary') !default;
+
+/// Configuração padrão referente a borda
+/// @group settings
+$border-default: $border-width-base solid $border-color-base !default;
+
+/// Constante com as definições do raio do circulo
+/// @group settings
+$border-radius-circle: 100% !default;

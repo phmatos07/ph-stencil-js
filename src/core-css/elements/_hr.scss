@@ -1,0 +1,13 @@
+%hr {
+  display: block;
+  width: 100%;
+  margin: {
+    top: space(medium);
+    bottom: space(medium);
+  }
+  border-bottom: 1px solid color(ui-border-primary);
+}
+
+hr {
+  @extend %hr;
+}

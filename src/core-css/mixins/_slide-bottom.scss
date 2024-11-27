@@ -1,0 +1,71 @@
+/// Mixin responsável por aplicar uma animação do tipo slide-bottom (deslocar para baixo) ou slide-in (deslocar de baixo para cima)
+///
+/// @group tools
+/// @param {string} $type [in] - Tipo da animação, in ou out ('in' para deslocar para baixo e 'out' para deslocar de baixo para cima)
+/// @param {string} $duration [400ms] - Tempo que durará a animação (em segundos ou milessegundos)
+/// @param {string} $timing-function [linear]- Efeito em função do tempo
+///
+/// @example scss - Uso para deslocar de baixo para cima (sem parâmetros)
+/// .class {
+///   @include slide-bottom;
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   animation: slide-uke546uj 400ms linear normal none;
+///
+///   @keyframes slide-uke546uj {
+///     0% {
+///       transform: translateY(1000px);
+///     }
+///
+///     100% {
+///       transform: translateY(0);
+///     }
+///   }
+/// }
+///
+/// @example scss - Uso para deslocar para baixo
+/// .class {
+///   @include slide-bottom(out);
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   animation: slide-u5hg46ub 300ms linear reverse forwards;
+///
+///   @keyframes slide-u5hg46ub {
+///     0% {
+///       transform: translateY(1000px);
+///     }
+///
+///     100% {
+///       transform: translateY(0);
+///     }
+///   }
+/// }
+
+@mixin slide-bottom($type: in, $duration: 400ms, $timing-function: linear) {
+  @if $type != out and $type != in {
+    @error '#{$type} is a inválid $type, please insert \"out\" or \"in\"';
+  }
+
+  $name-keyframe: _create-key-name(slide);
+  $animation: $name-keyframe $duration $timing-function normal none;
+
+  @if $type == out {
+    $animation: $name-keyframe $duration $timing-function reverse forwards;
+  }
+
+  animation: $animation;
+
+  @keyframes #{$name-keyframe} {
+    0% {
+      bottom: -50vh;
+    }
+
+    100% {
+      bottom: 0;
+    }
+  }
+}

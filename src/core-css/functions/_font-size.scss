@@ -1,0 +1,28 @@
+/// Função responsável por obter os tamanhos referente a fonte de texto
+///
+/// @group tools
+/// @param {string} $key - Nome da chave referente ao tamanho desejado
+/// @return {number} - Valor numérico convertido em REM (Ex.: 0.875rem)
+/// @require {variable} $font-sizes
+///
+/// @example scss - Uso da função
+/// .class {
+///   font-size: font-size(medium);
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   font-size: 0.875rem;
+/// }
+///
+@function font-size($key) {
+  @if not variable-exists(font-sizes) {
+    @warn _warning-message('map', '$font-sizes');
+  } @else if not map-has-key($font-sizes, $key) {
+    @warn _warning-message('key', $key);
+  } @else if not function-exists(rem) {
+    @warn 'A função `rem` não foi encontrada!';
+  } @else {
+    @return rem(map-get($font-sizes, $key));
+  }
+}
