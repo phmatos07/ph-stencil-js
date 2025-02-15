@@ -1,8 +1,8 @@
-$button-pressed: #1246E5 !default;
+$button-pressed: #1246e5 !default;
 
 %button-selected {
   color: color(ui-text-light);
-  background-color: color(brand-primary);
+  background-color: color(primary);
   border: $button-border-style;
 
   &:active {
@@ -19,7 +19,7 @@ $button-pressed: #1246E5 !default;
   @extend %button;
 
   &--secondary {
-    color: color(brand-primary);
+    color: color(primary);
     border: $border-default;
 
     &:disabled {

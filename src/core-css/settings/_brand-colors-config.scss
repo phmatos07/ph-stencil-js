@@ -1,16 +1,16 @@
 /// Mapa padrão com as cores referente à marca (**Brand**)
 ///
 /// @group settings
-/// @prop {string} $brand-colors.brand-primary - Cor primária da marca
-/// @prop {string} $brand-colors.brand-secondary - Cor secundária da marca
+/// @prop {string} $brand-colors.primary - Cor primária da marca
+/// @prop {string} $brand-colors.secondary - Cor secundária da marca
 ///
 /// @example scss - Caso queira definir novas cores em seu projeto
 ///   $brand-colors: (
-///     brand-primary: #0033C6,
-///     brand-secondary: #E71A3B
+///     primary: #0033C6,
+///     secondary: #E71A3B
 ///   );
 ///
 $brand-colors: (
-  brand-primary: #0033C6,
-  brand-secondary: #E71A3B
+  primary: #0033c6,
+  secondary: #e71a3b
 ) !default;

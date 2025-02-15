@@ -1,12 +1,12 @@
 $button-border-width: 2px !default;
-$button-border-style: $button-border-width solid color(brand-primary) !default;
-$button-animation-duration: .3s !default;
+$button-border-style: $button-border-width solid color(primary) !default;
+$button-animation-duration: 0.3s !default;
 
 %button {
   padding: space(medium);
   font-size: font-size(small);
   font-weight: font-weight(bold);
-  color: color(brand-primary);
+  color: color(primary);
   text-transform: uppercase;
   background-color: color(ui-background-secondary);
   border: $button-border-style;

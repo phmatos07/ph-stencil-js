@@ -26,7 +26,7 @@
     $calc-result: null;
 
     @if unit($value) == 'px' {
-      $calc-result: math.div(_clean-unit($value), _clean-unit($font-size-base));
+      $calc-result: math.div(_clean-unit($value), _clean-unit($size-base));
     } @else if unit($value) == 'rem' {
       $calc-result: _clean-unit($value);
     } @else {

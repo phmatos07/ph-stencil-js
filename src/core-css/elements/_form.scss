@@ -34,7 +34,7 @@ $textarea-height: rem(120px) !default;
   &:checked {
     &::before {
       content: '';
-      background-color: color(brand-primary);
+      background-color: color(primary);
       border: 3px solid color(ui-background-secondary);
       box-shadow: 0 0 0 $input-border-width color(ui-border-secondary);
     }
