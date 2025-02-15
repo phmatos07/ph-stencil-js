@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'ph-stencil-js',
+  globalStyle: 'src/global/global.scss',
   taskQueue: 'async',
   plugins: [sass()],
   extras: {
