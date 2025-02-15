@@ -1,7 +1,7 @@
 import { Component, h, JSX, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'horizontal-timeline',
+  tag: 'phsj-horizontal-timeline',
   styleUrl: 'horizontal-timeline.scss',
   shadow: true
 })

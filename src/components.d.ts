@@ -6,49 +6,64 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface HorizontalTimeline {
+    interface MyPlayground {
+    }
+    interface PhsjHorizontalTimeline {
         "points": { name: string; active?: boolean }[];
         "position": string | number;
     }
-    interface MyPlayground {
+    interface PhsjModal {
+        "title": string;
     }
 }
 declare global {
-    interface HTMLHorizontalTimelineElement extends Components.HorizontalTimeline, HTMLStencilElement {
-    }
-    var HTMLHorizontalTimelineElement: {
-        prototype: HTMLHorizontalTimelineElement;
-        new (): HTMLHorizontalTimelineElement;
-    };
     interface HTMLMyPlaygroundElement extends Components.MyPlayground, HTMLStencilElement {
     }
     var HTMLMyPlaygroundElement: {
         prototype: HTMLMyPlaygroundElement;
         new (): HTMLMyPlaygroundElement;
     };
+    interface HTMLPhsjHorizontalTimelineElement extends Components.PhsjHorizontalTimeline, HTMLStencilElement {
+    }
+    var HTMLPhsjHorizontalTimelineElement: {
+        prototype: HTMLPhsjHorizontalTimelineElement;
+        new (): HTMLPhsjHorizontalTimelineElement;
+    };
+    interface HTMLPhsjModalElement extends Components.PhsjModal, HTMLStencilElement {
+    }
+    var HTMLPhsjModalElement: {
+        prototype: HTMLPhsjModalElement;
+        new (): HTMLPhsjModalElement;
+    };
     interface HTMLElementTagNameMap {
-        "horizontal-timeline": HTMLHorizontalTimelineElement;
         "my-playground": HTMLMyPlaygroundElement;
+        "phsj-horizontal-timeline": HTMLPhsjHorizontalTimelineElement;
+        "phsj-modal": HTMLPhsjModalElement;
     }
 }
 declare namespace LocalJSX {
-    interface HorizontalTimeline {
+    interface MyPlayground {
+    }
+    interface PhsjHorizontalTimeline {
         "points": { name: string; active?: boolean }[];
         "position"?: string | number;
     }
-    interface MyPlayground {
+    interface PhsjModal {
+        "title": string;
     }
     interface IntrinsicElements {
-        "horizontal-timeline": HorizontalTimeline;
         "my-playground": MyPlayground;
+        "phsj-horizontal-timeline": PhsjHorizontalTimeline;
+        "phsj-modal": PhsjModal;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "horizontal-timeline": LocalJSX.HorizontalTimeline & JSXBase.HTMLAttributes<HTMLHorizontalTimelineElement>;
             "my-playground": LocalJSX.MyPlayground & JSXBase.HTMLAttributes<HTMLMyPlaygroundElement>;
+            "phsj-horizontal-timeline": LocalJSX.PhsjHorizontalTimeline & JSXBase.HTMLAttributes<HTMLPhsjHorizontalTimelineElement>;
+            "phsj-modal": LocalJSX.PhsjModal & JSXBase.HTMLAttributes<HTMLPhsjModalElement>;
         }
     }
 }

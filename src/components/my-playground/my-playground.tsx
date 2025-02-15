@@ -39,6 +39,14 @@ export class MyPlayground {
       console.log('POINTS', POINTS);
     }, 5000);
 
-    return <horizontal-timeline points={POINTS}></horizontal-timeline>;
+    /* return <phsj-horizontal-timeline points={POINTS}></phsj-horizontal-timeline>; */
+    return (
+      <phsj-modal title="My Modal">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex eaque asperiores ipsa repellat rem voluptatibus eveniet dolores numquam dolor, harum ipsum et expedita illo deleniti odit,
+          laudantium eius modi fuga.
+        </p>
+      </phsj-modal>
+    );
   }
 }
