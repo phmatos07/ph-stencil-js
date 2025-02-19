@@ -1,7 +1,8 @@
 @import '../../core-css/import-tools-settings';
 
 :host {
-  --shadow-background-color: rgba(0, 0, 0, 0.5);
+  --shadow-background-color-primary: rgba(0, 0, 0, 0.5);
+  --shadow-background-color-secondary: rgba(0, 0, 0, 0.1);
   --content-width: 400px;
   --content-background-color: white;
 }
@@ -16,11 +17,24 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--shadow-background-color);
     z-index: z-index(highest);
+
+    &--display {
+      animation: display 1s linear 1;
+      background-color: var(--shadow-background-color-primary);
+    }
+
+    &--to-hide {
+      animation: hidden 1s linear 1;
+      background-color: var(--shadow-background-color-secondary);
+    }
   }
 
   &__content {
+    &--invisible {
+      animation: invisible 1s linear 1 2s;
+    }
+
     width: var(--content-width);
     max-height: 800px;
     padding: space(medium);
@@ -42,6 +56,36 @@
       &:hover {
         color: color(primary);
       }
+    }
+  }
+
+  @keyframes display {
+    from {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    to {
+      background-color: var(--shadow-background-color-primary);
+    }
+  }
+
+  @keyframes hidden {
+    from {
+      background-color: var(--shadow-background-color-primary);
+    }
+
+    to {
+      background-color: var(--shadow-background-color-secondary);
+    }
+  }
+
+  @keyframes invisible {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
     }
   }
 }
