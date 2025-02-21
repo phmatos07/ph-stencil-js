@@ -1,4 +1,4 @@
-import { Component, h, JSX, Prop, State } from '@stencil/core';
+import { Component, Event, EventEmitter, h, JSX, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'phsj-modal',
@@ -15,14 +15,13 @@ export class Modal {
   @State()
   private isHidden = false;
 
-  private close(): void {
-    const TIME_TO_HIDE = 1000;
-    this.isHidden = true;
-
-    setTimeout(() => {
-      this.isDisplayed = false;
-    }, TIME_TO_HIDE);
-  }
+  @Event({
+    eventName: 'isClose',
+    composed: true,
+    cancelable: true,
+    bubbles: true
+  })
+  isClose!: EventEmitter<boolean>;
 
   render(): JSX.Element | null {
     return this.isDisplayed ? (
@@ -51,5 +50,15 @@ export class Modal {
         </div>
       </section>
     ) : null;
+  }
+
+  private close(): void {
+    const TIME_TO_HIDE = 1000;
+    this.isHidden = true;
+
+    setTimeout(() => {
+      this.isDisplayed = false;
+      this.isClose.emit(true);
+    }, TIME_TO_HIDE);
   }
 }

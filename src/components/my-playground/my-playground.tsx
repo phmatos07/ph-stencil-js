@@ -7,7 +7,7 @@ import { Component, h, JSX } from '@stencil/core';
 })
 export class MyPlayground {
   render(): JSX.Element | null {
-    let POINTS = [
+    /* let POINTS = [
       {
         name: '2018',
         active: true
@@ -37,16 +37,25 @@ export class MyPlayground {
     setTimeout(() => {
       POINTS = { ...POINTS, 10: { name: '2020', active: true } };
       console.log('POINTS', POINTS);
-    }, 5000);
+    }, 5000); 
 
-    /* return <phsj-horizontal-timeline points={POINTS}></phsj-horizontal-timeline>; */
+    return <phsj-horizontal-timeline points={POINTS}></phsj-horizontal-timeline>;
+    */
+
     return (
-      <phsj-modal title="My Modal">
+      <phsj-modal
+        title="My Modal"
+        onIsClose={ev => this.isClose(ev)}
+      >
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex eaque asperiores ipsa repellat rem voluptatibus eveniet dolores numquam dolor, harum ipsum et expedita illo deleniti odit,
           laudantium eius modi fuga.
         </p>
       </phsj-modal>
     );
+  }
+
+  isClose(event: CustomEvent): void {
+    console.log('Evento recebido:', event.detail);
   }
 }

@@ -9,12 +9,12 @@
 
 ### Depends on
 
-- [horizontal-timeline](../horizontal-timeline)
+- [phsj-modal](../modal)
 
 ### Graph
 ```mermaid
 graph TD;
-  my-playground --> horizontal-timeline
+  my-playground --> phsj-modal
   style my-playground fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

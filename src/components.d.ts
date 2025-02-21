@@ -16,6 +16,10 @@ export namespace Components {
         "title": string;
     }
 }
+export interface PhsjModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPhsjModalElement;
+}
 declare global {
     interface HTMLMyPlaygroundElement extends Components.MyPlayground, HTMLStencilElement {
     }
@@ -29,7 +33,18 @@ declare global {
         prototype: HTMLPhsjHorizontalTimelineElement;
         new (): HTMLPhsjHorizontalTimelineElement;
     };
+    interface HTMLPhsjModalElementEventMap {
+        "isClose": boolean;
+    }
     interface HTMLPhsjModalElement extends Components.PhsjModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPhsjModalElementEventMap>(type: K, listener: (this: HTMLPhsjModalElement, ev: PhsjModalCustomEvent<HTMLPhsjModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPhsjModalElementEventMap>(type: K, listener: (this: HTMLPhsjModalElement, ev: PhsjModalCustomEvent<HTMLPhsjModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPhsjModalElement: {
         prototype: HTMLPhsjModalElement;
@@ -49,6 +64,7 @@ declare namespace LocalJSX {
         "position"?: string | number;
     }
     interface PhsjModal {
+        "onIsClose"?: (event: PhsjModalCustomEvent<boolean>) => void;
         "title": string;
     }
     interface IntrinsicElements {
