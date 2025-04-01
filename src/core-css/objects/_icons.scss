@@ -1,0 +1,71 @@
+$Icons-font: "Icons";
+
+@font-face {
+    font-family: $Icons-font;
+    src: url("/assets/fonts/Icons.eot?8c005dc76fd00e2d318f483d9073d968#iefix") format("embedded-opentype"),
+url("/assets/fonts/Icons.woff2?8c005dc76fd00e2d318f483d9073d968") format("woff2"),
+url("/assets/fonts/Icons.woff?8c005dc76fd00e2d318f483d9073d968") format("woff");
+}
+
+.icon:before {
+    font-family: Icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$Icons-map: (
+    "cart": "\f101",
+    "check-list": "\f102",
+    "check": "\f103",
+    "close": "\f104",
+    "down-arrow": "\f105",
+    "financial-protection": "\f106",
+    "home-protection": "\f107",
+    "protected-life": "\f108",
+    "sales": "\f109",
+    "scan": "\f10a",
+    "seach": "\f10b",
+    "up-arrow": "\f10c",
+);
+
+.icon.icon-cart:before {
+    content: map-get($Icons-map, "cart");
+}
+.icon.icon-check-list:before {
+    content: map-get($Icons-map, "check-list");
+}
+.icon.icon-check:before {
+    content: map-get($Icons-map, "check");
+}
+.icon.icon-close:before {
+    content: map-get($Icons-map, "close");
+}
+.icon.icon-down-arrow:before {
+    content: map-get($Icons-map, "down-arrow");
+}
+.icon.icon-financial-protection:before {
+    content: map-get($Icons-map, "financial-protection");
+}
+.icon.icon-home-protection:before {
+    content: map-get($Icons-map, "home-protection");
+}
+.icon.icon-protected-life:before {
+    content: map-get($Icons-map, "protected-life");
+}
+.icon.icon-sales:before {
+    content: map-get($Icons-map, "sales");
+}
+.icon.icon-scan:before {
+    content: map-get($Icons-map, "scan");
+}
+.icon.icon-seach:before {
+    content: map-get($Icons-map, "seach");
+}
+.icon.icon-up-arrow:before {
+    content: map-get($Icons-map, "up-arrow");
+}

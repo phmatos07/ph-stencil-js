@@ -1,0 +1,52 @@
+$button-pressed: #1246e5 !default;
+
+%button-selected {
+  color: color(ui-text-light);
+  background-color: color(primary);
+  border: $button-border-style;
+
+  &:active {
+    background-color: $button-pressed;
+    border-color: $button-pressed;
+  }
+
+  &:focus {
+    @include animation-ripple($button-pressed, $button-animation-duration);
+  }
+}
+
+.#{$prefix}button {
+  @extend %button;
+
+  &--secondary {
+    color: color(primary);
+    border: $border-default;
+
+    &:disabled {
+      border-width: $border-width-base;
+    }
+  }
+
+  &--tertiary {
+    @extend %button-selected;
+    width: 100%;
+  }
+
+  &--plus {
+    &::before {
+      content: '+';
+      margin-right: space(small);
+      font-size: font-size(medium);
+      font-weight: font-weight(bold);
+      line-height: 0;
+    }
+  }
+
+  &--selected {
+    @extend %button-selected;
+  }
+
+  &--disabled {
+    @extend %button-disabled;
+  }
+}

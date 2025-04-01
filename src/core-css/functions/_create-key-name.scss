@@ -1,0 +1,13 @@
+/// Função responsável por criar nome de chave aleatório
+///
+/// @group private-tools
+/// @access private
+/// @param {string} $type - Tipo da mensagem (Ex.: map ou key).
+/// @param {string} $name - Nome do mapa ou da chave.
+/// @return {string} Texto com a mensagem personalizada.
+///
+@function _create-key-name($name) {
+  @if $name {
+    @return #{$name - unique-id()};
+  }
+}

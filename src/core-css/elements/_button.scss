@@ -1,0 +1,38 @@
+$button-border-width: 2px !default;
+$button-border-style: $button-border-width solid color(primary) !default;
+$button-animation-duration: 0.3s !default;
+
+%button {
+  padding: space(medium);
+  font-size: font-size(small);
+  font-weight: font-weight(bold);
+  color: color(primary);
+  text-transform: uppercase;
+  background-color: color(ui-background-secondary);
+  border: $button-border-style;
+  border-radius: border-radius(small);
+  cursor: pointer;
+
+  &:active {
+    background-color: color(ui-background-primary);
+    border-color: color(ui-border-secondary);
+  }
+
+  &:focus {
+    @include animation-ripple(color(ui-background-primary), $button-animation-duration);
+  }
+}
+
+%button-disabled {
+  color: color(ui-text-primary);
+  background-color: color(ui-disabled);
+  border: $button-border-width solid color(ui-disabled);
+}
+
+button {
+  @extend %button;
+
+  &:disabled {
+    @extend %button-disabled;
+  }
+}

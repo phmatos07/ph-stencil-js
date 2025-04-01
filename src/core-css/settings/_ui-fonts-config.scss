@@ -1,0 +1,98 @@
+/// Mapa de fontes padrão da **Brand**.
+///
+/// Se for utilizar "fontes padrão de SO" como 'Arial' ou 'Verdana', insira `null` na chave `path`.
+///
+/// **Nota:** Para uma melhor performance e usabilidade quando for a mesma fonte, use sempre o mesmo `nome`, e lembre-se que o `path` é relativo ao arquivo `main.scss`.
+///
+/// @group settings
+/// @prop {string} $ui-fonts.regular - Configuração de fonte para o peso **regular** (400)
+/// @prop {string} $ui-fonts.bold - Configuração de fonte para o peso **bold** (700)
+///
+/// @link https://developer.mozilla.org/pt-BR/docs/Web/CSS/font-weight#Mapeamento_de_nomes_comuns_de_pesos Mapeamento de nomes comuns de pesos
+///
+$ui-fonts: (
+  roboto-thin: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-Thin.ttf',
+    format: 'truetype',
+    weight: 100,
+    style: normal,
+  ),
+  roboto-thin-italic: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-ThinItalic.ttf',
+    format: 'truetype',
+    weight: 100,
+    style: italic,
+  ),
+  roboto-light: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-Light.ttf',
+    format: 'truetype',
+    weight: 300,
+    style: normal,
+  ),
+  roboto-light-italic: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-LightItalic.ttf',
+    format: 'truetype',
+    weight: 300,
+    style: italic,
+  ),
+  roboto-regular: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-Regular.ttf',
+    format: 'truetype',
+    weight: 400,
+    style: normal,
+  ),
+  roboto-italic: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-Italic.ttf',
+    format: 'truetype',
+    weight: 400,
+    style: italic,
+  ),
+  roboto-medium: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-Medium.ttf',
+    format: 'truetype',
+    weight: 500,
+    style: italic,
+  ),
+  roboto-medium-italic: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-MediumItalic.ttf',
+    format: 'truetype',
+    weight: 500,
+    style: italic,
+  ),
+  roboto-bold: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-Bold.ttf',
+    format: 'truetype',
+    weight: 700,
+    style: normal,
+  ),
+  roboto-bold-italic: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-BoldItalic.ttf',
+    format: 'truetype',
+    weight: 700,
+    style: normal,
+  ),
+  roboto-black: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-Black.ttf',
+    format: 'truetype',
+    weight: 900,
+    style: normal,
+  ),
+  roboto-black-italic: (
+    name: 'Nunito',
+    path: '../fonts/Roboto-BlackItalic.ttf',
+    format: 'truetype',
+    weight: 900,
+    style: normal,
+  ),
+) !default;

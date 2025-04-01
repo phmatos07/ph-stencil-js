@@ -1,0 +1,54 @@
+%alert-content {
+  &::before {
+    content: '!';
+  }
+}
+
+%box-base {
+  margin: {
+    top: space(small);
+    bottom: space(small);
+  };
+  padding: space(medium);
+  border-radius: border-radius(xsmall);
+}
+
+.#{$prefix}alert {
+  font-size: font-size(medium);
+  font-weight: font-weight(bold);
+  color: color(ui-text-primary);
+
+  &--success {
+    color: color(ui-success);
+  }
+
+  &--info {
+    @extend %alert-content;
+    color: color(ui-info);
+  }
+
+  &--attention {
+    @extend %alert-content;
+    color: color(ui-attention);
+  }
+
+  &--box-success {
+    @extend %box-base;
+    color: color(ui-text-light);
+    background-color: color(ui-success);
+  }
+
+  &--box-info {
+    @extend %alert-content;
+    @extend %box-base;
+    color: color(ui-text-light);
+    background-color: color(ui-info);
+  }
+
+  &--box-attention {
+    @extend %alert-content;
+    @extend %box-base;
+    color: color(ui-text-light);
+    background-color: color(ui-attention);
+  }
+}

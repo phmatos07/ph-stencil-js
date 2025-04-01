@@ -1,0 +1,28 @@
+/// Função responsável por obter os espaçamentos dos componentes
+///
+/// @group tools
+/// @param {string} $key - Nome da chave referente ao tamanho desejado
+/// @return {number} - Valor da camada (Ex.: 20px)
+/// @require {variable} $spaces
+///
+/// @example scss - Uso da função
+/// .class {
+///   margin: space(medium);
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   margin: 20px;
+/// }
+///
+@function space($key) {
+  @if not variable-exists(spaces) {
+    @warn _warning-message('map', '$spaces');
+  } @else if not map-has-key($spaces, $key) {
+    @warn _warning-message('key', $key);
+  } @else if not function-exists(rem) {
+    @warn 'A função `rem` não foi encontrada!';
+  } @else {
+    @return rem(map-get($spaces, $key));
+  }
+}

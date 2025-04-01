@@ -6,56 +6,80 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface MyPlayground {
+    }
+    interface PhsjHorizontalTimeline {
+        "points": { name: string; active?: boolean }[];
+        "position": string | number;
+    }
+    interface PhsjModal {
+        "title": string;
     }
 }
+export interface PhsjModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPhsjModalElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLMyPlaygroundElement extends Components.MyPlayground, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLMyPlaygroundElement: {
+        prototype: HTMLMyPlaygroundElement;
+        new (): HTMLMyPlaygroundElement;
+    };
+    interface HTMLPhsjHorizontalTimelineElement extends Components.PhsjHorizontalTimeline, HTMLStencilElement {
+    }
+    var HTMLPhsjHorizontalTimelineElement: {
+        prototype: HTMLPhsjHorizontalTimelineElement;
+        new (): HTMLPhsjHorizontalTimelineElement;
+    };
+    interface HTMLPhsjModalElementEventMap {
+        "isClose": boolean;
+    }
+    interface HTMLPhsjModalElement extends Components.PhsjModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPhsjModalElementEventMap>(type: K, listener: (this: HTMLPhsjModalElement, ev: PhsjModalCustomEvent<HTMLPhsjModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPhsjModalElementEventMap>(type: K, listener: (this: HTMLPhsjModalElement, ev: PhsjModalCustomEvent<HTMLPhsjModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPhsjModalElement: {
+        prototype: HTMLPhsjModalElement;
+        new (): HTMLPhsjModalElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "my-playground": HTMLMyPlaygroundElement;
+        "phsj-horizontal-timeline": HTMLPhsjHorizontalTimelineElement;
+        "phsj-modal": HTMLPhsjModalElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface MyPlayground {
+    }
+    interface PhsjHorizontalTimeline {
+        "points": { name: string; active?: boolean }[];
+        "position"?: string | number;
+    }
+    interface PhsjModal {
+        "onIsClose"?: (event: PhsjModalCustomEvent<boolean>) => void;
+        "title": string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "my-playground": MyPlayground;
+        "phsj-horizontal-timeline": PhsjHorizontalTimeline;
+        "phsj-modal": PhsjModal;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "my-playground": LocalJSX.MyPlayground & JSXBase.HTMLAttributes<HTMLMyPlaygroundElement>;
+            "phsj-horizontal-timeline": LocalJSX.PhsjHorizontalTimeline & JSXBase.HTMLAttributes<HTMLPhsjHorizontalTimelineElement>;
+            "phsj-modal": LocalJSX.PhsjModal & JSXBase.HTMLAttributes<HTMLPhsjModalElement>;
         }
     }
 }

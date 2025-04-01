@@ -1,0 +1,15 @@
+/// Mapa de configuração referente aos tamanhos da grid
+/// @group settings
+///
+
+$breakpoints: (
+  xs: 32rem, // 512px
+  sm: 48rem, // 768px
+  md: 72rem, // 1152px
+  lg: 96rem, // 1536px
+  xl: 102rem, // 1632px
+  xx: 120rem // 1920px
+);
+
+$grid-gutter: 1rem !default;
+$grid-columns: 12 !default;

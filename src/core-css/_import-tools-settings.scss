@@ -1,0 +1,7 @@
+// Configurações - Camada usada com pré-processadores e contém definições de fonte, cores e etc.
+@import './settings/index';
+
+// Ferramentas (Functions e mixins) - Camada de mixins e funções usados ​​globalmente.
+// Nota: É importante não gerar nenhum CSS nas 2 primeiras camadas.
+@import './functions/index';
+@import './mixins/index';

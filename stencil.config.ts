@@ -3,16 +3,20 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'ph-stencil-js',
+  globalStyle: 'src/global/global.scss',
+  taskQueue: 'async',
   plugins: [sass()],
+  extras: {
+    appendChildSlotFix: true,
+    cloneNodeFix: true
+  },
   outputTargets: [
     {
       type: 'dist',
-      esmLoaderPath: '../loader'
+      copy: [{ src: 'core-css' }]
     },
     {
-      type: 'dist-custom-elements',
-      customElementsExportBehavior: 'auto-define-custom-elements',
-      externalRuntime: false
+      type: 'dist-custom-elements'
     },
     {
       type: 'docs-readme'

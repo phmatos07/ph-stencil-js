@@ -1,0 +1,104 @@
+$input-height-default: rem(40px) !default;
+$input-border-width: 1px !default;
+$input-border-style: $input-border-width solid color(ui-border-primary) !default;
+$checkbox-radio-size: rem(22px) !default;
+$textarea-height: rem(120px) !default;
+
+%field-style {
+  width: 100%;
+  height: $input-height-default;
+  padding: {
+    right: space(medium);
+    left: space(medium);
+  }
+  color: color(ui-text-primary);
+  background-color: color(ui-background-secondary);
+  border: $input-border-style;
+  border-radius: border-radius(xsmall);
+}
+
+%checkbox-radio-style {
+  width: 0;
+  height: 0;
+  margin-bottom: space(large);
+
+  &::before {
+    content: '';
+    display: block;
+    width: $checkbox-radio-size;
+    height: $checkbox-radio-size;
+    background-color: color(ui-background-secondary);
+    box-shadow: 0 0 0 $input-border-width color(ui-border-secondary);
+  }
+
+  &:checked {
+    &::before {
+      content: '';
+      background-color: color(primary);
+      border: 3px solid color(ui-background-secondary);
+      box-shadow: 0 0 0 $input-border-width color(ui-border-secondary);
+    }
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: space(small);
+  font-size: font-size(medium);
+  font-weight: font-weight(bold);
+  color: color(ui-text-primary);
+}
+
+input {
+  @extend %field-style;
+  font-size: font-size(small);
+  font-weight: font-weight(bold);
+
+  &::placeholder {
+    color: color(ui-text-secondary);
+  }
+
+  &[type='checkbox'] {
+    @extend %checkbox-radio-style;
+
+    &::before {
+      border-radius: border-radius(xsmall);
+    }
+  }
+
+  &[type='radio'] {
+    @extend %checkbox-radio-style;
+
+    &::before {
+      border-radius: 50%;
+    }
+  }
+
+  &[type='submit'] {
+    &:disabled {
+      @extend %button-disabled;
+    }
+  }
+}
+
+select {
+  @extend %field-style;
+  font-size: font-size(small);
+  font-weight: font-weight(bold);
+
+  option {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+}
+
+textarea {
+  @extend %field-style;
+  height: $textarea-height;
+  font-size: font-size(small);
+  background-color: color(ui-background-secondary);
+
+  &::placeholder {
+    color: color(ui-text-secondary);
+  }
+}

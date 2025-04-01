@@ -1,0 +1,97 @@
+@import '../../core-css/import-tools-settings';
+@layer deactivated, active;
+
+:host {
+  // Cor padrão
+  --standard-color: #006ea1;
+
+  // Definições da linha horizontal
+  --line-thickness: 2px;
+  --line-color: var(--standard-color);
+  --baseline: var(--line-thickness) solid var(--line-color);
+
+  // Definições da legenda
+  --caption-font-size: 12px;
+  --caption-color: var(--standard-color);
+  --caption-margin-bottom: 5px;
+
+  // Definições da elipse
+  --elipse-thickness: 2px;
+  --elipse-color: var(--standard-color);
+  --ellipse-base: var(--elipse-thickness) solid var(--elipse-color);
+  --ellipsis-check: var(--standard-color);
+  --ellipse-width: 10px;
+  --ellipse-side-spacing: 10px;
+  --ellipse-background-color: #ffffff;
+}
+
+.horizontal-timeline {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  div {
+    &:first-child {
+      span:first-child {
+        flex-grow: 1;
+      }
+    }
+
+    &:last-child {
+      span:last-child {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &__lines {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    &__line {
+      flex-grow: 2;
+      border-top: var(--baseline);
+    }
+
+    &__circle {
+      width: max-content;
+      margin: {
+        left: var(--ellipse-side-spacing);
+        right: var(--ellipse-side-spacing);
+      }
+
+      strong {
+        display: block;
+        font-size: var(--caption-font-size);
+        color: var(--caption-color);
+        text-align: center;
+        white-space: nowrap;
+        margin-bottom: var(--caption-margin-bottom);
+      }
+
+      @layer active {
+        &--active {
+          background-color: var(--ellipsis-check);
+        }
+      }
+
+      @layer deactivated {
+        span {
+          display: block;
+          width: var(--ellipse-width);
+          height: var(--ellipse-width);
+          margin: {
+            left: auto;
+            right: auto;
+          }
+          background-color: var(--ellipse-background-color);
+          border: var(--ellipse-base);
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.#{$prefix}tab {
+  display: flex;
+  background-color: color(ui-background-secondary);
+  box-shadow: 0 0 10px color(ui-box-shadow);
+
+  &__item {
+    width: 100%;
+    padding: space(large) 0;
+    font-weight: font-weight(bold);
+    text-align: center;
+    text-transform: uppercase;
+
+    &--active {
+      border-bottom: 3px solid color(primary);
+    }
+  }
+}

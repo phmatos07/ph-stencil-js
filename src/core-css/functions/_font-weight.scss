@@ -1,0 +1,26 @@
+/// Função responsável por obter o valor referente ao peso da font
+///
+/// @group tools
+/// @param {string} $key - Nome da chave referente ao peso (Ex.: regular ou bold)
+/// @return {number} - 400 ou 700
+/// @require {variable} $font-weight
+///
+/// @example scss - Uso da função
+/// .class {
+///   font-weight: font-weight(regular);
+/// }
+///
+/// @example scss - Compilado
+/// .class {
+///   font-weight: 400;
+/// }
+///
+@function font-weight($key) {
+  @if not variable-exists(font-weight) {
+    @warn _warning-message('map', '$spaces');
+  } @else if not map-has-key($font-weight, $key) {
+    @warn _warning-message('key', $key);
+  } @else {
+    @return map-get($font-weight, $key);
+  }
+}

@@ -1,0 +1,39 @@
+$modal-bottom-background: rgba(0, 0, 0, .4) !default;
+
+.#{$prefix}modal-bottom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: z-index(medium);
+  width: 100%;
+  height: 100vh;
+
+  &--dark-background {
+    background-color: $modal-bottom-background;
+  }
+
+  &--visible {
+    @include fade(in, .3s);
+  }
+
+  &--hidden {
+    @include fade(out, .3s);
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: space(large);
+    background-color: color(ui-background-secondary);
+    border-radius: border-radius(small) border-radius(small) 0 0;
+
+    &--visible {
+      @include slide-bottom(in, .5s);
+    }
+
+    &--hidden {
+      @include slide-bottom(out, .5s);
+    }
+  }
+}

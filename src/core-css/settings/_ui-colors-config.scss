@@ -1,0 +1,28 @@
+/// Mapa de cores padrão da interface **UI**
+///
+/// @group settings
+/// @prop {string} $ui-colors.ui-text-primary - Cor primária para todos os textos
+/// @prop {string} $ui-colors.ui-text-secondary - Cor secundária para todos os textos
+/// @prop {string} $ui-colors.ui-light - Cor de sobre tom para apoio em toda a UI
+/// @prop {string} $ui-colors.ui-info - Cor para ser usada para caixas de informação ao usuário
+/// @prop {string} $ui-colors.ui-success - Cor para ser usada em casos de sucesso
+/// @prop {string} $ui-colors.ui-attention - Cor para ser usada como alerta de erro
+///
+$ui-colors: (
+  ui-text-primary: #212121,
+  ui-text-secondary: #b5b5b5,
+  ui-text-light: #ffffff,
+  ui-border-primary: #e8e8e8,
+  ui-border-secondary: #cccccc,
+  ui-box-shadow: #dfdfdf,
+  ui-info: #ffcf4d,
+  ui-success: #0e8154,
+  ui-attention: #d30545,
+  ui-disabled: #b5b5b5,
+  ui-background-primary: #f2f2f2,
+  ui-background-secondary: #ffffff,
+  ui-background-complementary: #fbfbfb,
+  ui-background-skeleton-loader: #f5f5f5,
+  ui-icon-light: #f5f5f5,
+  ui-spinner: #0033c6
+) !default;

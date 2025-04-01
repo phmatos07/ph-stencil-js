@@ -1,0 +1,28 @@
+/// Gerador da tag CSS `@font-face`.
+///
+/// Quando compilado cria as tags CSS `@font-face` para cada tipografia
+/// configurada nos mapas `$ui-fonts` e `$brand-fonts`
+///
+/// @group generic
+///
+/// @example css - Compilado
+///   @font-face {
+///     font-family: 'Nunito';
+///     src: url('./assets/fonts/Nunito-Regular.ttf') format('truetype');
+///     font-weight: 400;
+///     font-style: normal;
+///   }
+///
+/// @link https://sass-guidelin.es/pt/#ciclos Como funciona o ciclo @each?
+/// @link https://developer.mozilla.org/pt-BR/docs/Web/CSS/@font-face Como funciona a regra de CSS @font-face?
+///
+@each $family, $sub-map in $ui-fonts {
+  @if map-get($sub-map, 'path') {
+    @font-face {
+      font-family: '#{map-get($sub-map, name)}';
+      src: url('#{map-get($sub-map, path)}') format('#{map-get($sub-map, format)}');
+      font-weight: #{map-get($sub-map, weight)};
+      font-style: #{map-get($sub-map, style)};
+    }
+  }
+}

@@ -3,6 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "declaration": false,
+    "strict": true,
     "experimentalDecorators": true,
     "lib": [
       "dom",
