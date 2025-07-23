@@ -1,0 +1,37 @@
+@charset 'UTF-8';
+
+// Organização das camadas conforme a hierarquia e especificidade do CSS
+@layer base, elements, components, layout, utilities, themes;
+
+// Tipografia, estrutura base e ferramentas (Functions e mixins)
+@layer base {
+  @import 'base/reset';
+  @import './variables';
+  @import './functions/index';
+  @import './mixins/index';
+  @import './base/typography';
+}
+
+// Elements (Buttons, hr, forms, etc.)
+@layer elements {
+  @import 'elements/index';
+}
+
+// Componentes (botões, cards, etc.)
+@layer components {
+  @import 'components/index';
+}
+
+// Layout (header, footer, grid, etc.)
+@layer layout {
+  @import './layout/index';
+}
+
+// Utilitários (helpers, helpers de layout, etc.)
+@layer utilities {
+  @import './utilities/index';
+}
+
+@layer themes {
+  @import 'themes/default-theme';
+}
