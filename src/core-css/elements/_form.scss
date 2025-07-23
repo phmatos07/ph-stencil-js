@@ -1,8 +1,11 @@
-$input-height-default: rem(40px) !default;
+@use '../functions/rem' as fnRem;
+@use '../functions/color' as fnColor;
+
+$input-height-default: fnRem.rem(40px) !default;
 $input-border-width: 1px !default;
-$input-border-style: $input-border-width solid color(ui-border-primary) !default;
-$checkbox-radio-size: rem(22px) !default;
-$textarea-height: rem(120px) !default;
+$input-border-style: $input-border-width solid fnColor.color(ui-border-primary) !default;
+$checkbox-radio-size: fnRem.rem(22px) !default;
+$textarea-height: fnRem.rem(120px) !default;
 
 %field-style {
   width: 100%;
@@ -11,8 +14,8 @@ $textarea-height: rem(120px) !default;
     right: space(medium);
     left: space(medium);
   }
-  color: color(ui-text-primary);
-  background-color: color(ui-background-secondary);
+  color: fnColor.color(ui-text-primary);
+  background-color: fnColor.color(ui-background-secondary);
   border: $input-border-style;
   border-radius: border-radius(xsmall);
 }
@@ -27,16 +30,16 @@ $textarea-height: rem(120px) !default;
     display: block;
     width: $checkbox-radio-size;
     height: $checkbox-radio-size;
-    background-color: color(ui-background-secondary);
-    box-shadow: 0 0 0 $input-border-width color(ui-border-secondary);
+    background-color: fnColor.color(ui-background-secondary);
+    box-shadow: 0 0 0 $input-border-width fnColor.color(ui-border-secondary);
   }
 
   &:checked {
     &::before {
       content: '';
-      background-color: color(primary);
-      border: 3px solid color(ui-background-secondary);
-      box-shadow: 0 0 0 $input-border-width color(ui-border-secondary);
+      background-color: fnColor.color(primary);
+      border: 3px solid fnColor.color(ui-background-secondary);
+      box-shadow: 0 0 0 $input-border-width fnColor.color(ui-border-secondary);
     }
   }
 }
@@ -46,7 +49,7 @@ label {
   margin-bottom: space(small);
   font-size: font-size(medium);
   font-weight: font-weight(bold);
-  color: color(ui-text-primary);
+  color: fnColor.color(ui-text-primary);
 }
 
 input {
@@ -55,7 +58,7 @@ input {
   font-weight: font-weight(bold);
 
   &::placeholder {
-    color: color(ui-text-secondary);
+    color: fnColor.color(ui-text-secondary);
   }
 
   &[type='checkbox'] {
@@ -96,9 +99,9 @@ textarea {
   @extend %field-style;
   height: $textarea-height;
   font-size: font-size(small);
-  background-color: color(ui-background-secondary);
+  background-color: fnColor.color(ui-background-secondary);
 
   &::placeholder {
-    color: color(ui-text-secondary);
+    color: fnColor.color(ui-text-secondary);
   }
 }

@@ -1,32 +1,35 @@
+@use '../functions/color' as fnColor;
+@use '../mixins/animation-ripple' as animation;
+
 $button-border-width: 2px !default;
-$button-border-style: $button-border-width solid color(primary) !default;
+$button-border-style: $button-border-width solid fnColor.color(primary) !default;
 $button-animation-duration: 0.3s !default;
 
 %button {
   padding: space(medium);
   font-size: font-size(small);
   font-weight: font-weight(bold);
-  color: color(primary);
+  color: fnColor.color(primary);
   text-transform: uppercase;
-  background-color: color(ui-background-secondary);
+  background-color: fnColor.color(ui-background-secondary);
   border: $button-border-style;
   border-radius: border-radius(small);
   cursor: pointer;
 
   &:active {
-    background-color: color(ui-background-primary);
-    border-color: color(ui-border-secondary);
+    background-color: fnColor.color(ui-background-primary);
+    border-color: fnColor.color(ui-border-secondary);
   }
 
   &:focus {
-    @include animation-ripple(color(ui-background-primary), $button-animation-duration);
+    @include animation.animation-ripple(fnColor.color(ui-background-primary), $button-animation-duration);
   }
 }
 
 %button-disabled {
-  color: color(ui-text-primary);
-  background-color: color(ui-disabled);
-  border: $button-border-width solid color(ui-disabled);
+  color: fnColor.color(ui-text-primary);
+  background-color: fnColor.color(ui-disabled);
+  border: $button-border-width solid fnColor.color(ui-disabled);
 }
 
 button {

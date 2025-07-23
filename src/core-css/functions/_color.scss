@@ -14,16 +14,17 @@
 ///  background-color: #0033C6;
 /// }
 ///
-@function color($color) {
-  @if variable-exists(brand-colors) and variable-exists(ui-colors) {
-    $all-colors: map-merge($brand-colors, $ui-colors);
 
-    @if map-has-key($all-colors, $color) {
-      @return map-get($all-colors, $color);
-    } @else {
-      @warn 'A chave "#{$color}" não existe nos mapas "$brand-colors" ou "$ui-colors"!';
-    }
+@use 'sass:map';
+@use '../variables/brand-colors-config' as brand;
+@use '../variables/ui-colors-config' as ui;
+
+@function color($color) {
+  $all-colors: map.merge(brand.$brand-colors, ui.$ui-colors);
+
+  @if map.has-key($all-colors, $color) {
+    @return map.get($all-colors, $color);
   } @else {
-    @warn 'Por favor, verifique se o mapa "$brand-colors" ou "$ui-colors" foi declarado corretamente!';
+    @warn 'A chave "#{$color}" não existe nos mapas "$brand-colors" ou "$ui-colors"!';
   }
 }

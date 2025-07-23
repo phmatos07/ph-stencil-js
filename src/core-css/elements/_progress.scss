@@ -1,12 +1,15 @@
-$progress-bar-background: #E9E9E9 !default;
+@use '../functions/rem' as fnRem;
+@use '../functions/color' as fnColor;
+
+$progress-bar-background: #e9e9e9 !default;
 
 progress {
   appearance: none;
   width: 100%;
-  height: rem(4px);
+  height: fnRem.rem(4px);
 
   &::-webkit-progress-value {
-    background-color: color(ui-success);
+    background-color: fnColor.color(ui-success);
     border-radius: border-radius(small);
   }
 

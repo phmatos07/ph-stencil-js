@@ -16,13 +16,19 @@
 /// @link https://sass-guidelin.es/pt/#ciclos Como funciona o ciclo @each?
 /// @link https://developer.mozilla.org/pt-BR/docs/Web/CSS/@font-face Como funciona a regra de CSS @font-face?
 ///
-@each $family, $sub-map in $ui-fonts {
-  @if map-get($sub-map, 'path') {
+
+@use 'sass:map';
+@use '../variables/ui-fonts-config' as fonts;
+@use '../variables/global-constants-config' as *;
+@use '../functions/color' as fnColor;
+
+@each $family, $sub-map in fonts.$ui-fonts {
+  @if map.get($sub-map, 'path') {
     @font-face {
-      font-family: '#{map-get($sub-map, name)}';
-      src: url('#{map-get($sub-map, path)}') format('#{map-get($sub-map, format)}');
-      font-weight: #{map-get($sub-map, weight)};
-      font-style: #{map-get($sub-map, style)};
+      font-family: '#{map.get($sub-map, name)}';
+      src: url('#{map.get($sub-map, path)}') format('#{map.get($sub-map, format)}');
+      font-weight: #{map.get($sub-map, weight)};
+      font-style: #{map.get($sub-map, style)};
     }
   }
 }
@@ -31,7 +37,7 @@ body {
   font-family: Nunito, #{$font-web-safe};
   font-size: font-size(medium);
   font-weight: font-weight(regular);
-  color: color(ui-text-primary);
+  color: fnColor.color('ui-text-primary');
   line-height: 1.2;
-  background-color: color(ui-background-primary);
+  background-color: fnColor.color(ui-background-primary);
 }

@@ -1,3 +1,5 @@
+@use '../functions/color' as fnColor;
+
 %hr {
   display: block;
   width: 100%;
@@ -5,7 +7,7 @@
     top: space(medium);
     bottom: space(medium);
   }
-  border-bottom: 1px solid color(ui-border-primary);
+  border-bottom: 1px solid fnColor.color(ui-border-primary);
 }
 
 hr {
