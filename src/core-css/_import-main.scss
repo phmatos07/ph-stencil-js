@@ -1,37 +1,49 @@
 @charset 'UTF-8';
 
+// Importação de módulos SCSS
+@use './base/reset' as reset;
+@use './variables/index' as variables;
+@use './functions/index' as functions;
+@use './mixins/index' as mixins;
+@use './base/typography' as typography;
+@use './elements/index' as elements;
+@use './components/index' as components;
+@use './layout/index' as layout;
+@use './utilities/index' as utilities;
+@use './themes/default-theme' as themes;
+
 // Organização das camadas conforme a hierarquia e especificidade do CSS
 @layer base, elements, components, layout, utilities, themes;
 
 // Tipografia, estrutura base e ferramentas (Functions e mixins)
 @layer base {
-  @import 'base/reset';
-  @import './variables';
-  @import './functions/index';
-  @import './mixins/index';
-  @import './base/typography';
+  @include reset;
+  @include variables;
+  @include functions;
+  @include mixins;
+  @include typography;
 }
 
 // Elements (Buttons, hr, forms, etc.)
 @layer elements {
-  @import 'elements/index';
+  @include elements;
 }
 
 // Componentes (botões, cards, etc.)
 @layer components {
-  @import 'components/index';
+  @include components;
 }
 
 // Layout (header, footer, grid, etc.)
 @layer layout {
-  @import './layout/index';
+  @include layout;
 }
 
 // Utilitários (helpers, helpers de layout, etc.)
 @layer utilities {
-  @import './utilities/index';
+  @include utilities;
 }
 
 @layer themes {
-  @import 'themes/default-theme';
+  @include themes;
 }

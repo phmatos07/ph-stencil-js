@@ -1,17 +1,6 @@
-// Organização das camadas conforme a hierarquia e especificidade do CSS
-@layer variables, functions, mixins;
-
-// Configurações - Camada usada com pré-processadores e contém definições de fonte, cores e etc.
-@layer variables {
-  @import './variables/index';
-}
-
-// Camada de funções - Camada de funções usadas globalmente.
-@layer functions {
-  @import './functions/index';
-}
-
-// Camada de mixins - Camada de mixins usados globalmente.
-@layer mixins {
-  @import './mixins/index';
-}
+/// Este arquivo é responsável por importar e agrupar os principais módulos Sass do projeto,
+/// organizando as variáveis, funções e mixins em namespaces claros para facilitar seu uso em outros arquivos.
+///
+@use './variables/index' as variables;
+@use './functions/index' as functions;
+@use './mixins/index' as mixins;

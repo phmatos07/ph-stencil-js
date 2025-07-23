@@ -1,5 +1,4 @@
-@import './button';
-@import './card';
-@import './form';
-@import './hr';
-@import './progress';
+@forward './button';
+@forward './form';
+@forward './hr';
+@forward './progress';

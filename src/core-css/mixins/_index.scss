@@ -1,7 +1,7 @@
-@import './reset-configs';
-@import './breakpoint';
-@import './animation-rotate';
-@import './fade';
-@import './slide-bottom';
-@import './animation-ripple';
-@import './skeleton-loader';
+@forward './reset-configs';
+@forward './breakpoint';
+@forward './animation-rotate';
+@forward './fade';
+@forward './slide-bottom';
+@forward './animation-ripple';
+@forward './skeleton-loader';
