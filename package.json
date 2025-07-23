@@ -38,7 +38,9 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test:watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "sass": "sass ./src/core-css/_import-main.scss:dist/stylesheet/main.css",
+    "sass:watch": "sass ./src/core-css/_import-main.scss:dist/stylesheet/main.css --watch"
   },
   "devDependencies": {
     "@stencil/core": "^4.7.0",
@@ -47,7 +49,8 @@
     "@types/node": "^16.18.11",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
-    "puppeteer": "^21.9.0"
+    "puppeteer": "^21.9.0",
+    "sass": "^1.89.2"
   },
   "license": "MIT"
 }
