@@ -22,15 +22,20 @@
 ///   }
 /// }
 ///
+@use 'sass:map';
+@use 'sass:meta';
+@use './../variables/grid-config' as constGrid;
+@use './../functions/warning-message' as fnWarningMessage;
+
+$breakpoints: constGrid.$breakpoints;
+
 @mixin breakpoint($key, $type-width: min) {
-
-  @if not variable-exists(breakpoints) {
-    @warn _warning-message('map', '$breakpoints');
-  } @else if not map-has-key($breakpoints, $key) {
-    @warn _warning-message('key', $key);
+  @if not meta.variable-exists(breakpoints) {
+    @warn fnWarningMessage.warning-message('map', '$breakpoints');
+  } @else if not map.has-key($breakpoints, $key) {
+    @warn fnWarningMessage.warning-message('key', $key);
   } @else {
-
-    @media (#{$type-width}-width: map-get($breakpoints, $key)) {
+    @media (#{$type-width}-width: map.get($breakpoints, $key)) {
       @content;
     }
   }

@@ -65,13 +65,14 @@
 ///     }
 ///   }
 /// }
+@use 'sass:string';
 
 @mixin fade($type: out, $duration: 300ms, $timing-function: linear, $fill-mode: forwards) {
   @if $type != out and $type != in {
     @error '#{$type} is a inválid $type, please insert \"out\" or \"in\"';
   }
 
-  $name-keyframe: fade-#{unique-id()};
+  $name-keyframe: fade-#{string.unique-id()};
   $initialize-keyframe: 1;
   $finalize-keyframe: 0;
 

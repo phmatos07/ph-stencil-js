@@ -1,4 +1,7 @@
-.#{$prefix}form-group {
+@use './../variables/global-constants-config' as const;
+@use './../elements/form' as form;
+
+.#{const.$prefix}form-group {
   margin-bottom: space(medium);
 
   &--required {
@@ -10,8 +13,8 @@
   }
 }
 
-.#{$prefix}form-checkbox,
-.#{$prefix}form-radio {
+.#{const.$prefix}form-checkbox,
+.#{const.$prefix}form-radio {
   display: flex;
   align-items: center;
   font-size: font-size(medium);
@@ -25,7 +28,7 @@
   }
 
   input {
-    width: $checkbox-radio-size;
+    width: form.$checkbox-radio-size;
     margin-right: space(small);
   }
 
@@ -35,7 +38,7 @@
     input {
       &::before {
         position: relative;
-        right: $side-spacing;
+        right: const.$side-spacing;
       }
     }
   }

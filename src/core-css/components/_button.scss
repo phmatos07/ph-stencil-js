@@ -1,8 +1,13 @@
+@use './../variables/global-constants-config' as const;
+@use './../mixins/animation-ripple' as mixAnimation;
+@use './../functions/color' as fnColor;
+@use './../elements/button' as *;
+
 $button-pressed: #1246e5 !default;
 
 %button-selected {
-  color: color(ui-text-light);
-  background-color: color(primary);
+  color: fnColor.color(ui-text-light);
+  background-color: fnColor.color(primary);
   border: $button-border-style;
 
   &:active {
@@ -11,19 +16,19 @@ $button-pressed: #1246e5 !default;
   }
 
   &:focus {
-    @include animation-ripple($button-pressed, $button-animation-duration);
+    @include mixAnimation.animation-ripple($button-pressed, $button-animation-duration);
   }
 }
 
-.#{$prefix}button {
+.#{const.$prefix}button {
   @extend %button;
 
   &--secondary {
-    color: color(primary);
-    border: $border-default;
+    color: fnColor.color(primary);
+    border: const.$border-default;
 
     &:disabled {
-      border-width: $border-width-base;
+      border-width: const.$border-width-base;
     }
   }
 

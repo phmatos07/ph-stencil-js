@@ -1,7 +1,10 @@
-.#{$prefix}tab {
+@use './../variables/global-constants-config' as const;
+@use './../functions/color' as fnColor;
+
+.#{const.$prefix}tab {
   display: flex;
-  background-color: color(ui-background-secondary);
-  box-shadow: 0 0 10px color(ui-box-shadow);
+  background-color: fnColor.color(ui-background-secondary);
+  box-shadow: 0 0 10px fnColor.color(ui-box-shadow);
 
   &__item {
     width: 100%;
@@ -11,7 +14,7 @@
     text-transform: uppercase;
 
     &--active {
-      border-bottom: 3px solid color(primary);
+      border-bottom: 3px solid fnColor.color(primary);
     }
   }
 }

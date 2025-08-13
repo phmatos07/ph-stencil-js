@@ -1,5 +1,6 @@
 @use '../functions/rem' as fnRem;
 @use '../functions/color' as fnColor;
+@use '../elements/button' as *;
 
 $input-height-default: fnRem.rem(40px) !default;
 $input-border-width: 1px !default;

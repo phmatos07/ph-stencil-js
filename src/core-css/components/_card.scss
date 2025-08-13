@@ -1,10 +1,13 @@
-.#{$prefix}card {
+@use './../variables/global-constants-config' as const;
+@use './../functions/color' as fnColor;
+
+.#{const.$prefix}card {
   width: 100%;
-  padding: space(medium) $side-spacing;
-  background-color: color(ui-background-secondary);
+  padding: space(medium) const.$side-spacing;
+  background-color: fnColor.color(ui-background-secondary);
   border: {
-    top: $border-default;
-    bottom: $border-default;
+    top: const.$border-default;
+    bottom: const.$border-default;
   }
 
   &--disable {
@@ -22,7 +25,7 @@
   }
 
   &--box-shadow {
-    box-shadow: 0 0 10px color(ui-box-shadow);
+    box-shadow: 0 0 10px fnColor.color(ui-box-shadow);
   }
 
   &__header {
@@ -31,8 +34,8 @@
       bottom: space(medium);
     }
     padding: space(medium) space(large);
-    background-color: color(ui-background-complementary);
-    border-bottom: $border-default;
+    background-color: fnColor.color(ui-background-complementary);
+    border-bottom: const.$border-default;
   }
 
   &__footer {
@@ -43,7 +46,7 @@
       left: -(space(large));
     }
     padding: space(medium) space(large);
-    background-color: color(ui-background-complementary);
-    border-top: $border-default;
+    background-color: fnColor.color(ui-background-complementary);
+    border-top: const.$border-default;
   }
 }

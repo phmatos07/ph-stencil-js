@@ -1,49 +1,24 @@
 @charset 'UTF-8';
 
-// Importação de módulos SCSS
+// Base: Camada responsável por definir a estrutura base do Core (Ex.: Tipografia, estrutura base e functions/mixins)
 @use './base/reset' as reset;
 @use './variables/index' as variables;
 @use './functions/index' as functions;
 @use './mixins/index' as mixins;
 @use './base/typography' as typography;
+
+// Elements: Camada responsável por definir o estilo padrão dos elementos HTML (Ex.: Buttons, hr, forms, etc.)
 @use './elements/index' as elements;
+
+// Componentes: Camada responsável por definir a estilização dos componentes globais (Ex.: Modais, cards, etc.)
+// TODO: Essa camada é temporária, pois a estilização será definida individualmente dentro de cada componente.
 @use './components/index' as components;
+
+// Layout: Camada responsável por definir a estilização de classes de layout (Ex.: Header, footer, grid, etc.)
 @use './layout/index' as layout;
+
+// Utilitários: Camada dedicada à definição de classes utilitárias, incluindo helpers com abstrações reutilizáveis (Ex.: Helpers, classes de espaçamento, etc.)
 @use './utilities/index' as utilities;
-@use './themes/default-theme' as themes;
 
-// Organização das camadas conforme a hierarquia e especificidade do CSS
-@layer base, elements, components, layout, utilities, themes;
-
-// Tipografia, estrutura base e ferramentas (Functions e mixins)
-@layer base {
-  @include reset;
-  @include variables;
-  @include functions;
-  @include mixins;
-  @include typography;
-}
-
-// Elements (Buttons, hr, forms, etc.)
-@layer elements {
-  @include elements;
-}
-
-// Componentes (botões, cards, etc.)
-@layer components {
-  @include components;
-}
-
-// Layout (header, footer, grid, etc.)
-@layer layout {
-  @include layout;
-}
-
-// Utilitários (helpers, helpers de layout, etc.)
-@layer utilities {
-  @include utilities;
-}
-
-@layer themes {
-  @include themes;
-}
+// Themes: Camada dedicada à definição ao estilo de diversos temas da aplicação (Ex.: Light theme, Dark theme, Black Friday theme, etc.)
+@use './themes/index' as themes;

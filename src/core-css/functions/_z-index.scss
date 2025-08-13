@@ -22,12 +22,19 @@
 ///     z-index: 930;
 ///   }
 ///
+@use 'sass:map';
+@use 'sass:meta';
+@use './../variables/z-layer-config' as constZLayer;
+@use './../functions/_warning-message' as fnWarningMessage;
+
+$z-layer: constZLayer.$z-layer;
+
 @function z-index($layer) {
-  @if not variable-exists(z-layer) {
-    @warn _warning-message('map', '$z-layer');
-  } @else if not(map-has-key($z-layer, $layer)) {
-    @warn _warning-message('key', $layer);
+  @if not meta.variable-exists(z-layer) {
+    @warn fnWarningMessage.warning-message('map', '$z-layer');
+  } @else if not(map.has-key($z-layer, $layer)) {
+    @warn fnWarningMessage.warning-message('key', $layer);
   } @else {
-    @return map-get($z-layer, $layer);
+    @return map.get($z-layer, $layer);
   }
 }

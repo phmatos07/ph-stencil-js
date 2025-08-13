@@ -1,3 +1,6 @@
+@use './../variables/global-constants-config' as const;
+@use './../functions/color' as fnColor;
+
 %alert-content {
   &::before {
     content: '!';
@@ -8,47 +11,47 @@
   margin: {
     top: space(small);
     bottom: space(small);
-  };
+  }
   padding: space(medium);
   border-radius: border-radius(xsmall);
 }
 
-.#{$prefix}alert {
+.#{const.$prefix}alert {
   font-size: font-size(medium);
   font-weight: font-weight(bold);
-  color: color(ui-text-primary);
+  color: fnColor.color(ui-text-primary);
 
   &--success {
-    color: color(ui-success);
+    color: fnColor.color(ui-success);
   }
 
   &--info {
     @extend %alert-content;
-    color: color(ui-info);
+    color: fnColor.color(ui-info);
   }
 
   &--attention {
     @extend %alert-content;
-    color: color(ui-attention);
+    color: fnColor.color(ui-attention);
   }
 
   &--box-success {
     @extend %box-base;
-    color: color(ui-text-light);
-    background-color: color(ui-success);
+    color: fnColor.color(ui-text-light);
+    background-color: fnColor.color(ui-success);
   }
 
   &--box-info {
     @extend %alert-content;
     @extend %box-base;
-    color: color(ui-text-light);
-    background-color: color(ui-info);
+    color: fnColor.color(ui-text-light);
+    background-color: fnColor.color(ui-info);
   }
 
   &--box-attention {
     @extend %alert-content;
     @extend %box-base;
-    color: color(ui-text-light);
-    background-color: color(ui-attention);
+    color: fnColor.color(ui-text-light);
+    background-color: fnColor.color(ui-attention);
   }
 }

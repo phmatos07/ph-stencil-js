@@ -1,8 +1,13 @@
 @use 'sass:math';
+@use './../variables/global-constants-config' as const;
+@use './../variables/grid-config' as constGrid;
+@use './../mixins/breakpoint' as mixBreakpoint;
+
 $margin-spacing: 1rem !default;
 $initial-cycle: 1 !default;
+$grid-columns: constGrid.$grid-columns;
 
-.#{$prefix}grid {
+.#{const.$prefix}grid {
   display: flex;
   flex-flow: row wrap;
   box-sizing: border-box;
@@ -29,23 +34,22 @@ $initial-cycle: 1 !default;
     }
   }
 
-  @each $key, $value in $breakpoints {
+  @each $key, $value in constGrid.$breakpoints {
     @for $i from $initial-cycle through $grid-columns {
       &__col--#{$key}-#{$i} {
-
-        @include breakpoint($key) {
+        @include mixBreakpoint.breakpoint($key) {
           flex: 0 0 #{math.div($i, $grid-columns) * 100%};
         }
       }
 
       &__col--#{$key}-hide-min {
-        @include breakpoint($key) {
+        @include mixBreakpoint.breakpoint($key) {
           display: none;
         }
       }
 
       &__col--#{$key}-hide-max {
-        @include breakpoint($key, max) {
+        @include mixBreakpoint.breakpoint($key, max) {
           display: none;
         }
       }

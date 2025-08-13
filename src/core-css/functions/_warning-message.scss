@@ -6,7 +6,7 @@
 /// @param {string} $name - Nome do mapa ou da chave.
 /// @return {string} Texto com a mensagem personalizada.
 ///
-@function _warning-message($type, $name) {
+@function warning-message($type, $name) {
   @if not $type {
     @return 'Informe o tipo da mensagem que deseja mostrar (Ex.: map ou key).';
   } @else if not $name {

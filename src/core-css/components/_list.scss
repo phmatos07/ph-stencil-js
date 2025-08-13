@@ -1,10 +1,12 @@
-.#{$prefix}list {
+@use './../variables/global-constants-config' as const;
+
+.#{const.$prefix}list {
   &__item {
     padding: space(medium) 0;
-    border-top: $border-default;
+    border-top: const.$border-default;
 
     &:last-child {
-      border-bottom: $border-default;
+      border-bottom: const.$border-default;
     }
   }
 }
