@@ -1,128 +1,52 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/* 01. Garante box-sizing previsível */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+/* 02. Remove margens padrão */
+:where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
   margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
+
+/* 03. Garante altura total da tela */
+html,
 body {
-  line-height: 1;
+  height: 100%;
 }
-ol,
-ul {
+
+/* 04. Tipografia base */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 05. Elementos de mídia */
+:where(img, picture, video, canvas, svg) {
+  display: block;
+  max-width: 100%;
+}
+
+/* 06. Inputs e botões herdam fonte */
+:where(input, button, textarea, select) {
+  font: inherit;
+}
+
+/* 07. Listas sem estilo por padrão */
+:where(ul, ol) {
   list-style: none;
+  padding: 0;
 }
-blockquote,
-q {
-  quotes: none;
+
+/* 08. Links sem sublinhado automático */
+:where(a) {
+  text-decoration: none;
+  color: inherit;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
+
+/* 09. Tabelas consistentes */
 table {
   border-collapse: collapse;
   border-spacing: 0;
