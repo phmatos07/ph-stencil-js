@@ -1,52 +1,62 @@
-/* 01. Garante box-sizing previsível */
+/* 01. GARANTE BOX-SIZING PREVISÍVEL */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* 02. Remove margens padrão */
+/* 02. REMOVE MARGENS PADRÃO */
 :where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
   margin: 0;
 }
 
-/* 03. Garante altura total da tela */
+/* 03. MEDIDA PADRÃO DO REM (EX.: 10PX)*/
+html {
+  font-size: 62.5%; /* Isso equivale a 10px (16px * 0.625 = 10px) */
+}
+
+/* Volta o tamanho base do texto para o valor desejado (ex: 16px) */
+body {
+  font-size: 1.6rem; /* 1.6 * 10px = 16px */
+}
+
+/* 04. GARANTE ALTURA TOTAL DA TELA */
 html,
 body {
   height: 100%;
 }
 
-/* 04. Tipografia base */
+/* 05. TIPOGRAFIA BASE */
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* 05. Elementos de mídia */
+/* 06. ELEMENTOS DE MÍDIA */
 :where(img, picture, video, canvas, svg) {
   display: block;
   max-width: 100%;
 }
 
-/* 06. Inputs e botões herdam fonte */
+/* 07. INPUTS E BOTÕES HERDAM FONTE */
 :where(input, button, textarea, select) {
   font: inherit;
 }
 
-/* 07. Listas sem estilo por padrão */
+/* 08. LISTAS SEM ESTILO POR PADRÃO */
 :where(ul, ol) {
   list-style: none;
   padding: 0;
 }
 
-/* 08. Links sem sublinhado automático */
+/* 09. LINKS SEM SUBLINHADO AUTOMÁTICO */
 :where(a) {
   text-decoration: none;
   color: inherit;
 }
 
-/* 09. Tabelas consistentes */
+/* 10. TABELAS CONSISTENTES */
 table {
   border-collapse: collapse;
   border-spacing: 0;
