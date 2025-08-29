@@ -1,0 +1,7 @@
+// TODO: Pré-definição do sistema de tema, mas será necessário analisar e verificar outras possibilidades (Por exemplo, usando variáveis CSS)
+:root[data-theme='dark'] {
+  --color-bg: #111111;
+  --color-fg: #f9f9f9;
+  --color-primary: #4d9eff;
+  --color-secondary: #ff884d;
+}
