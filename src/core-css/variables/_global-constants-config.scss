@@ -2,6 +2,12 @@
 @use 'spaces-config' as *;
 @use './ui-colors-config' as *;
 
+/// Constante responsável por estabelecer a unidade base de medida para o REM
+/// @group settings
+$dynamic-size-base: 62.5%; /* Isso equivale a 10px (16px * 0.625 = 10px) */
+//$dynamic-size-base: calc(16px * 0.625); /* Isso equivale a 10px (16px * 0.625 = 10px) */
+$size-base: 1.6rem; /* 1.6 * 10px = 16px */
+
 /// Constante utilizada para definir o prefixo das classes (Nota: Não é obrigatório)
 /// @group settings
 $prefix: null;
@@ -13,10 +19,6 @@ $side-spacing: map.get($spaces, 'large') !default;
 /// Constante com as configurações de fontes do tipo `web-safe`
 /// @group settings
 $font-web-safe: Arial, sans-serif !default;
-
-/// Constante utilizada para facilitar a conversão de unidades de medida
-/// @group settings
-$size-base: 16px !default;
 
 /// Espessura padrão referente a borda
 /// @group settings

@@ -1,8 +1,8 @@
 @charset 'UTF-8';
 
 // Base: Camada responsável por definir a estrutura base do Core (Ex.: Tipografia, estrutura base e functions/mixins)
-@use './base/reset' as reset;
 @use './variables/index' as variables;
+@use './base/reset' as reset;
 @use './functions/index' as functions;
 @use './mixins/index' as mixins;
 @use './base/typography' as typography;

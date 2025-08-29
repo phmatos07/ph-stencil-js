@@ -1,3 +1,5 @@
+@use '../variables/global-constants-config' as const;
+
 /* 01. GARANTE BOX-SIZING PREVISÍVEL */
 *,
 *::before,
@@ -10,14 +12,19 @@
   margin: 0;
 }
 
-/* 03. MEDIDA PADRÃO DO REM (EX.: 10PX)*/
+/// 03. MEDIDA PADRÃO DO REM (EX.: 10px)
+/// Ao definir font-size: 62.5% no <html>, estamos na verdade "enganando" o navegador para que 1rem seja igual a 10px, e não os 16px padrão.
+/// Isso torna o cálculo de todas as outras medidas baseadas em rem muito mais simples para nós, desenvolvedores.
+/// @group reset
 html {
-  font-size: 62.5%; /* Isso equivale a 10px (16px * 0.625 = 10px) */
+  font-size: const.$dynamic-size-base; /* Isso equivale a 10px (16px * 0.625 = 10px) */
 }
 
-/* Volta o tamanho base do texto para o valor desejado (ex: 16px) */
+/// Precisamos definir o font-size base como 16px para garantir uma boa legibilidade.
+/// Caso contrário, todo o texto do site terá como referência 10px, o que é pequeno demais e pode comprometer tanto a leitura quanto a acessibilidade.
+/// @group reset
 body {
-  font-size: 1.6rem; /* 1.6 * 10px = 16px */
+  font-size: const.$size-base; /* 1.6 * 10px = 16px */
 }
 
 /* 04. GARANTE ALTURA TOTAL DA TELA */

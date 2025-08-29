@@ -1,11 +1,12 @@
 @use '../functions/color' as fnColor;
+@use '../functions/space' as fnSpace;
 
 %hr {
   display: block;
   width: 100%;
   margin: {
-    top: space(medium);
-    bottom: space(medium);
+    top: fnSpace.space(medium);
+    bottom: fnSpace.space(medium);
   }
   border-bottom: 1px solid fnColor.color(ui-border-primary);
 }

@@ -17,6 +17,7 @@
 
 @use 'sass:math';
 @use 'sass:meta';
+@use './clean-unit' as fnClean;
 @use '../variables/global-constants-config' as const;
 
 @function rem($value) {
@@ -30,11 +31,11 @@
     $calc-result: null;
 
     @if math.unit($value) == 'px' {
-      $calc-result: calc(_clean-unit($value) / _clean-unit(const.$size-base));
+      $calc-result: calc(fnClean.clean-unit($value) / fnClean.clean-unit(const.$dynamic-size-base));
     } @else if math.unit($value) == 'rem' {
-      $calc-result: _clean-unit($value);
+      $calc-result: fnClean.clean-unit($value);
     } @else {
-      $calc-result: calc(_clean-unit($value) / 100);
+      $calc-result: calc(fnClean.clean-unit($value) / 100);
     }
 
     $result: calc($calc-result * 1rem);
