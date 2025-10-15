@@ -44,13 +44,14 @@
 ///     }
 ///   }
 /// }
+@use '../functions/create-key-name' as *;
 
 @mixin slide-bottom($type: in, $duration: 400ms, $timing-function: linear) {
   @if $type != out and $type != in {
     @error '#{$type} is a inválid $type, please insert \"out\" or \"in\"';
   }
 
-  $name-keyframe: _create-key-name(slide);
+  $name-keyframe: create-key-name(slide);
   $animation: $name-keyframe $duration $timing-function normal none;
 
   @if $type == out {

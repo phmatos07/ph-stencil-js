@@ -1,7 +1,7 @@
-@use './../variables/global-constants-config' as const;
+@use './../variables/global-constants-config' as *;
 @use './../elements/hr' as *;
 
-.#{const.$prefix}hr {
+.#{$prefix}hr {
   @extend %hr;
 
   &--dashed {

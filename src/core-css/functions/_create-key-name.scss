@@ -6,8 +6,10 @@
 /// @param {string} $name - Nome do mapa ou da chave.
 /// @return {string} Texto com a mensagem personalizada.
 ///
-@function _create-key-name($name) {
+@use 'sass:string';
+
+@function create-key-name($name) {
   @if $name {
-    @return #{$name - unique-id()};
+    @return #{$name - string.unique-id()};
   }
 }

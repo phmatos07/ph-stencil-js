@@ -43,10 +43,11 @@
 ///  }
 /// }
 ///
+@use '../functions/create-key-name' as *;
+
 @mixin animation-ripple($color: null, $duration: 1s, $timing: ease, $delay: 0s) {
   @if $color {
-
-    $keyframe-ripple: _create-key-name(ripple);
+    $keyframe-ripple: create-key-name(ripple);
     animation: $keyframe-ripple $duration $timing $delay;
 
     @keyframes #{$keyframe-ripple} {

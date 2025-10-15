@@ -16,11 +16,11 @@
 ///
 
 @use 'sass:map';
-@use '../variables/brand-colors-config' as brand;
-@use '../variables/ui-colors-config' as ui;
+@use '../variables/brand-colors-config' as *;
+@use '../variables/ui-colors-config' as *;
 
 @function color($color) {
-  $all-colors: map.merge(brand.$brand-colors, ui.$ui-colors);
+  $all-colors: map.merge($brand-colors, $ui-colors);
 
   @if map.has-key($all-colors, $color) {
     @return map.get($all-colors, $color);

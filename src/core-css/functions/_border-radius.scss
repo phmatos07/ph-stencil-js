@@ -17,16 +17,14 @@
 ///
 @use 'sass:map';
 @use 'sass:meta';
-@use './../variables/border-radius-config' as constBorderRadius;
-@use './../functions/_warning-message' as fnWarningMessage;
-
-$border-radius: constBorderRadius.$border-radius;
+@use './../variables/border-radius-config' as *;
+@use './../functions/_warning-message' as *;
 
 @function border-radius($key) {
   @if not meta.variable-exists(border-radius) {
-    @warn fnWarningMessage.warning-message('map', '$border-radius');
+    @warn warning-message('map', '$border-radius');
   } @else if not map.has-key($border-radius, $key) {
-    @warn fnWarningMessage.warning-message('key', $key);
+    @warn warning-message('key', $key);
   } @else {
     @return map.get($border-radius, $key);
   }

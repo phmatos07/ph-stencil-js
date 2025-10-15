@@ -1,5 +1,9 @@
-@use './../variables/global-constants-config' as const;
-@use './../functions/color' as fnColor;
+@use './../variables/global-constants-config' as *;
+@use './../functions/font-size' as *;
+@use './../functions/font-weight' as *;
+@use './../functions/color' as *;
+@use './../functions/space' as *;
+@use './../functions/border-radius' as *;
 
 %alert-content {
   &::before {
@@ -16,42 +20,42 @@
   border-radius: border-radius(xsmall);
 }
 
-.#{const.$prefix}alert {
+.#{$prefix}alert {
   font-size: font-size(medium);
   font-weight: font-weight(bold);
-  color: fnColor.color(ui-text-primary);
+  color: color(ui-text-primary);
 
   &--success {
-    color: fnColor.color(ui-success);
+    color: color(ui-success);
   }
 
   &--info {
     @extend %alert-content;
-    color: fnColor.color(ui-info);
+    color: color(ui-info);
   }
 
   &--attention {
     @extend %alert-content;
-    color: fnColor.color(ui-attention);
+    color: color(ui-attention);
   }
 
   &--box-success {
     @extend %box-base;
-    color: fnColor.color(ui-text-light);
-    background-color: fnColor.color(ui-success);
+    color: color(ui-text-light);
+    background-color: color(ui-success);
   }
 
   &--box-info {
     @extend %alert-content;
     @extend %box-base;
-    color: fnColor.color(ui-text-light);
-    background-color: fnColor.color(ui-info);
+    color: color(ui-text-light);
+    background-color: color(ui-info);
   }
 
   &--box-attention {
     @extend %alert-content;
     @extend %box-base;
-    color: fnColor.color(ui-text-light);
-    background-color: fnColor.color(ui-attention);
+    color: color(ui-text-light);
+    background-color: color(ui-attention);
   }
 }

@@ -1,12 +1,13 @@
-@use './../variables/global-constants-config' as const;
+@use './../variables/global-constants-config' as *;
+@use './../functions/space' as *;
 
-.#{const.$prefix}list {
+.#{$prefix}list {
   &__item {
     padding: space(medium) 0;
-    border-top: const.$border-default;
+    border-top: $border-default;
 
     &:last-child {
-      border-bottom: const.$border-default;
+      border-bottom: $border-default;
     }
   }
 }

@@ -17,17 +17,15 @@
 ///
 @use 'sass:map';
 @use 'sass:meta';
-@use './../variables/spaces-config' as constSpaces;
-@use './../functions/_warning-message' as fnWarningMessage;
+@use './../variables/spaces-config' as *;
+@use './../functions/_warning-message' as *;
 @use './../functions/_rem' as *;
-
-$spaces: constSpaces.$spaces;
 
 @function space($key) {
   @if not meta.variable-exists(spaces) {
-    @warn fnWarningMessage.warning-message('map', '$spaces');
+    @warn warning-message('map', '$spaces');
   } @else if not map.has-key($spaces, $key) {
-    @warn fnWarningMessage.warning-message('key', '$key');
+    @warn warning-message('key', '$key');
   } @else if not meta.function-exists('rem') {
     @warn 'A função `rem` não foi encontrada!';
   } @else {

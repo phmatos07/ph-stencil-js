@@ -16,13 +16,14 @@
 /// @link https://sass-guidelin.es/pt/#ciclos Como funciona o ciclo @each?
 /// @link https://developer.mozilla.org/pt-BR/docs/Web/CSS/@font-face Como funciona a regra de CSS @font-face?
 ///
-
 @use 'sass:map';
-@use '../variables/ui-fonts-config' as fonts;
+@use '../variables/ui-fonts-config' as *;
 @use '../variables/global-constants-config' as *;
-@use '../functions/color' as fnColor;
+@use '../functions/color' as *;
+@use '../functions/font-size' as *;
+@use '../functions/font-weight' as *;
 
-@each $family, $sub-map in fonts.$ui-fonts {
+@each $family, $sub-map in $ui-fonts {
   @if map.get($sub-map, 'path') {
     @font-face {
       font-family: '#{map.get($sub-map, name)}';
@@ -37,7 +38,7 @@ body {
   font-family: Nunito, #{$font-web-safe};
   font-size: font-size(medium);
   font-weight: font-weight(regular);
-  color: fnColor.color('ui-text-primary');
+  color: color('ui-text-primary');
   line-height: 1.2;
-  background-color: fnColor.color(ui-background-primary);
+  background-color: color(ui-background-primary);
 }

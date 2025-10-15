@@ -1,18 +1,18 @@
-@use './../variables/global-constants-config' as const;
-@use './../functions/color' as fnColor;
-@use './../functions/space' as fnSpace;
-@use './../functions/z-index' as fnZIndex;
-@use './../functions/border-radius' as fnBorderRadius;
-@use './../mixins/fade' as mixFade;
-@use './../mixins/slide-bottom' as mixSlideBottom;
+@use './../variables/global-constants-config' as *;
+@use './../functions/color' as *;
+@use './../functions/space' as *;
+@use './../functions/z-index' as *;
+@use './../functions/border-radius' as *;
+@use './../mixins/fade' as *;
+@use './../mixins/slide-bottom' as *;
 
 $modal-bottom-background: rgba(0, 0, 0, 0.4) !default;
 
-.#{const.$prefix}modal-bottom {
+.#{$prefix}modal-bottom {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: fnZIndex.z-index(medium);
+  z-index: z-index(medium);
   width: 100%;
   height: 100vh;
 
@@ -21,27 +21,27 @@ $modal-bottom-background: rgba(0, 0, 0, 0.4) !default;
   }
 
   &--visible {
-    @include mixFade.fade(in, 0.3s);
+    @include fade(in, 0.3s);
   }
 
   &--hidden {
-    @include mixFade.fade(out, 0.3s);
+    @include fade(out, 0.3s);
   }
 
   &__content {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: fnSpace.space(large);
-    background-color: fnColor.color(ui-background-secondary);
-    border-radius: fnBorderRadius.border-radius(small) fnBorderRadius.border-radius(small) 0 0;
+    padding: space(large);
+    background-color: color(ui-background-secondary);
+    border-radius: border-radius(small) border-radius(small) 0 0;
 
     &--visible {
-      @include mixSlideBottom.slide-bottom(in, 0.5s);
+      @include slide-bottom(in, 0.5s);
     }
 
     &--hidden {
-      @include mixSlideBottom.slide-bottom(out, 0.5s);
+      @include slide-bottom(out, 0.5s);
     }
   }
 }

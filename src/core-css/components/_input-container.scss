@@ -1,6 +1,7 @@
-@use './../variables/global-constants-config' as const;
+@use './../variables/global-constants-config' as *;
+@use './../functions/space' as *;
 
-.#{const.$prefix}input-container {
+.#{$prefix}input-container {
   margin-bottom: space(large);
 
   &__validations {

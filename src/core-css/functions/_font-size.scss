@@ -15,14 +15,22 @@
 ///   font-size: 0.875rem;
 /// }
 ///
+
+@use 'sass:map';
+@use 'sass:meta';
+@use '../variables/font-sizes-config' as *;
+@use '../functions/warning-message' as *;
+@use '../functions/rem' as *;
+//@use '../variables/ui-colors-config' as ui; */
+
 @function font-size($key) {
-  @if not variable-exists(font-sizes) {
-    @warn _warning-message('map', '$font-sizes');
-  } @else if not map-has-key($font-sizes, $key) {
-    @warn _warning-message('key', $key);
-  } @else if not function-exists(rem) {
+  @if not meta.variable-exists(font-sizes) {
+    @warn warning-message('map', '$font-sizes');
+  } @else if not map.has-key($font-sizes, $key) {
+    @warn warning-message('key', $key);
+  } @else if not meta.function-exists(rem) {
     @warn 'A função `rem` não foi encontrada!';
   } @else {
-    @return rem(map-get($font-sizes, $key));
+    @return rem(map.get($font-sizes, $key));
   }
 }

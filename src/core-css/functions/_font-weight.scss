@@ -15,12 +15,17 @@
 ///   font-weight: 400;
 /// }
 ///
+@use 'sass:map';
+@use 'sass:meta';
+@use '../functions/warning-message' as *;
+@use '../variables/font-weight-config' as *;
+
 @function font-weight($key) {
-  @if not variable-exists(font-weight) {
-    @warn _warning-message('map', '$spaces');
-  } @else if not map-has-key($font-weight, $key) {
-    @warn _warning-message('key', $key);
+  @if not meta.variable-exists(font-weight) {
+    @warn warning-message('map', '$font-weight');
+  } @else if not map.has-key($font-weight, $key) {
+    @warn warning-message('key', $key);
   } @else {
-    @return map-get($font-weight, $key);
+    @return map.get($font-weight, $key);
   }
 }

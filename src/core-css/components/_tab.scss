@@ -1,10 +1,12 @@
-@use './../variables/global-constants-config' as const;
-@use './../functions/color' as fnColor;
+@use './../variables/global-constants-config' as *;
+@use './../functions/color' as *;
+@use './../functions/space' as *;
+@use './../functions/font-weight' as *;
 
-.#{const.$prefix}tab {
+.#{$prefix}tab {
   display: flex;
-  background-color: fnColor.color(ui-background-secondary);
-  box-shadow: 0 0 10px fnColor.color(ui-box-shadow);
+  background-color: color(ui-background-secondary);
+  box-shadow: 0 0 10px color(ui-box-shadow);
 
   &__item {
     width: 100%;
@@ -14,7 +16,7 @@
     text-transform: uppercase;
 
     &--active {
-      border-bottom: 3px solid fnColor.color(primary);
+      border-bottom: 3px solid color(primary);
     }
   }
 }

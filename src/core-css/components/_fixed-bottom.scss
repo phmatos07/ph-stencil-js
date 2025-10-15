@@ -1,14 +1,14 @@
-@use './../variables/global-constants-config' as const;
-@use './../functions/space' as fnSpace;
-@use './../functions/color' as fnColor;
+@use './../variables/global-constants-config' as *;
+@use './../functions/space' as *;
+@use './../functions/color' as *;
 
 $content-box-shadow-color: rgba(0, 0, 0, 0.1);
 
-.#{const.$prefix}fixed-bottom {
+.#{$prefix}fixed-bottom {
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: fnSpace.space(large);
-  background-color: fnColor.color(ui-background-secondary);
+  padding: space(large);
+  background-color: color(ui-background-secondary);
   box-shadow: 0 0 10px $content-box-shadow-color;
 }
