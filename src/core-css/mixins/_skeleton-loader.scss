@@ -33,11 +33,15 @@
 ///   animation: shimmer 1.5s linear infinite;
 /// }
 ///
+@use './../functions/warning-message' as *;
+@use './../functions/color' as *;
+@use './../functions/border-radius' as *;
+
 @mixin skeleton-loader($width, $height: 20px) {
   @if type-of($width) != 'number' {
-    @warn _warning-message('number', '$width');
+    @warn warning-message('number', '$width');
   } @else if type-of($height) != 'number' {
-    @warn _warning-message('number', '$height');
+    @warn warning-message('number', '$height');
   } @else {
     display: block;
     position: relative;
@@ -46,7 +50,7 @@
     overflow: hidden;
     background-color: color(ui-background-skeleton-loader);
     border-radius: border-radius(xsmall);
-    animation: opacity-animation .5s linear infinite;
+    animation: opacity-animation 0.5s linear infinite;
 
     &::after {
       content: '';
@@ -59,8 +63,8 @@
       background-image: linear-gradient(
         90deg,
         rgba(color(ui-background-secondary), 0) 0,
-        rgba(color(ui-background-secondary), .8) 30%,
-        rgba(color(ui-background-secondary), .7) 50%,
+        rgba(color(ui-background-secondary), 0.8) 30%,
+        rgba(color(ui-background-secondary), 0.7) 50%,
         rgba(color(ui-background-secondary), 0)
       );
       animation: shimmer 1.5s linear infinite;
@@ -72,7 +76,7 @@
       }
 
       50% {
-        opacity: .3;
+        opacity: 0.3;
       }
 
       100% {

@@ -25,7 +25,7 @@
 @use 'sass:map';
 @use 'sass:meta';
 @use './../variables/z-layer-config' as *;
-@use './../functions/_warning-message' as *;
+@use './../functions/warning-message' as *;
 
 @function z-index($layer) {
   @if not meta.variable-exists(z-layer) {

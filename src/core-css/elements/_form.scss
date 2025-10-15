@@ -1,10 +1,10 @@
-@use '../functions/rem' as *;
-@use '../functions/font-size' as *;
-@use '../functions/font-weight' as *;
-@use '../functions/color' as *;
-@use '../functions/space' as *;
-@use '../functions/border-radius' as *;
-@use '../elements/button' as *;
+@use './../functions/rem' as *;
+@use './../functions/font-size' as *;
+@use './../functions/font-weight' as *;
+@use './../functions/color' as *;
+@use './../functions/space' as *;
+@use './../functions/border-radius' as *;
+@use './../elements/button' as *;
 
 $input-height-default: rem(40px) !default;
 $input-border-width: 1px !default;

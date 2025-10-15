@@ -3,7 +3,7 @@
 @use './../functions/space' as *;
 @use './../functions/font-weight' as *;
 @use './../functions/border-radius' as *;
-@use '../mixins/animation-ripple' as *;
+@use './../mixins/animation-ripple' as *;
 
 $button-border-width: 2px !default;
 $button-border-style: $button-border-width solid color(primary) !default;

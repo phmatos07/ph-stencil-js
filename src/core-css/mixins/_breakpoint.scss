@@ -25,15 +25,15 @@
 @use 'sass:map';
 @use 'sass:meta';
 @use './../variables/grid-config' as constGrid;
-@use './../functions/warning-message' as fnWarningMessage;
+@use './../functions/warning-message' as *;
 
 $breakpoints: constGrid.$breakpoints;
 
 @mixin breakpoint($key, $type-width: min) {
   @if not meta.variable-exists(breakpoints) {
-    @warn fnWarningMessage.warning-message('map', '$breakpoints');
+    @warn warning-message('map', '$breakpoints');
   } @else if not map.has-key($breakpoints, $key) {
-    @warn fnWarningMessage.warning-message('key', $key);
+    @warn warning-message('key', $key);
   } @else {
     @media (#{$type-width}-width: map.get($breakpoints, $key)) {
       @content;
